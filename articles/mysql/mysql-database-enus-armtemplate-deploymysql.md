@@ -1,31 +1,31 @@
-<properties linkid="" urlDisplayName="" pageTitle="Use Azure Resource Manager Templates to Deploy MySQL Paas – Azure Cloud" metaKeywords="Azure Cloud, technical documentation, documents and resources, MySQL, database, Resource Manager, ARM, ARM Template, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="This article describes how to use Azure Resource Manager Templates (ARM Templates) to rapidly deploy MySQL PaaS and other popular apps." metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+<properties linkid="" urlDisplayName="" pageTitle="Use Azure Resource Manager templates to deploy MySQL PaaS – Azure" metaKeywords="Azure Cloud, technical documentation, documents and resources, MySQL, database, Resource Manager, ARM, ARM Template, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="This article describes how to use Azure Resource Manager Templates (ARM Templates) to rapidly deploy MySQL PaaS and other popular apps." metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
 
 <tags ms.service="mysql" ms.date="03/14/2017" wacn.date="03/14/2017" wacn.lang="cn" />
 
 > [AZURE.LANGUAGE]
 - [Chinese](/documentation/articles/mysql-database-armtemplate-deploymysql/)
 
-#Use Azure Resource Manager Templates to eploy MySQL Paas
+#Use Azure Resource Manager templates to deploy MySQL PaaS
 
-This article describes how to use Azure Resource Manager Templates (ARM Templates) to rapidly deploy MySQL PaaS and other popular apps.
+This article describes how to use Azure Resource Manager templates to rapidly deploy MySQL PaaS and other popular apps.
 
-##Understanding Azure Resource Manager Templates
+##Understanding Azure Resource Manager templates
 
-A Resource Manager Template is a JavaScript Object Notation (JSON) file that defines one or several resources that are to be deployed to resource groups. It also defines the dependencies between the resources being deployed. Using templates allows you to repeatedly deploy resources in a consistent manner. For more information about Resource Manager and Resource Manager Templates, please read [Azure Resource Manager Overview](https://docs.microsoft.com/zh-cn/azure/azure-resource-manager/resource-group-overview).
+A Resource Manager template is a JavaScript Object Notation (JSON) file that defines one or several resources that are to be deployed to resource groups. It also defines the dependencies among the resources being deployed. Using templates allows you to repeatedly deploy resources in a consistent manner. For more information about Resource Manager and Resource Manager templates, see [Azure Resource Manager Overview](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
-##Use Resource Manager Templates to Deploy MySQL Paas
+##Use Resource Manager templates to deploy MySQL PaaS
 
-This section describes how to use PowerShell with ARM Templates to deploy MySQL PaaS on Azure. Your template may be a local file or an external file that is accessed via a URI. If the template resides in a storage account, you can restrict access to the template and provide a Shared Access Signature (SAS) token during the deployment process.
+This section describes how to use PowerShell with Resource Manager templates to deploy MySQL PaaS on Azure. Your template may be a local file, or an external file that is accessed via a URI. If the template resides in a storage account, you can restrict access to the template and provide a Shared Access Signature (SAS) token during the deployment process.
 
-You can use the following PowerShell commands to get started quickly with your deployment (using Azure PowerShell 1.0.0+ as an example):
+Use the following PowerShell commands to get started quickly with your deployment (this example uses PowerShell 1.0.0 or later):
 
 	New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "chinaeast"
 	
 	New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
 
-These commands will create a resource group and deploy the template to the resource group. The template file is a local file. If this operation is successful, you will obtain all the required deployed resources.
+These commands create a resource group and deploy the template to the resource group. The template file is a local file. If this operation is successful, you are able to obtain all the required deployed resources.
 
-A fairly complete Resource Manager Template in JSON format is provided below. You can modify this template to meet your specific requirements.
+The following code is a fairly complete Resource Manager template in JSON format. You can modify this template to meet your specific requirements.
 
 	{
 	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,46 +137,46 @@ A fairly complete Resource Manager Template in JSON format is provided below. Yo
 	  ]
 	}
 
-##Publish an ARM Template on Azure Marketplace
+##Publish an Azure Resource Manager template on the Azure Marketplace
 
-You can publish a customized ARM Template on Azure Marketplace to enable end users to implement one-click deployment for all cloud services. Please see the Azure Marketplace Publisher Guide for detailed instructions on how to publish [ARM Templates on Azure Marketplace](https://market.azure.cn/Documentation/article/publishguide/).
+You can publish a customized Resource Manager template on the Azure Marketplace to enable users to implement one-click deployment for all cloud services. For detailed instructions, see the [Azure Marketplace Publisher Guide](https://market.azure.cn/Documentation/article/publishguide/).
 
-Azure Marketplace is a mirror image warehouse that is used by third-party independent software vendors (ISVs) to publish mirror image-type software, and which enables paying Azure users to create new virtual machine instances and download and use the third-party images that they need. This function helps companies looking for innovative cloud-based solutions to get in direct contact with Azure ISV partners that develop innovative solutions.
+The Marketplace is a warehouse used by third-party independent software vendors (ISVs) to publish mirror-image software. The Marketplace enables paying Azure users to create new virtual machine instances, and to download and use the third-party images that they need. This function helps companies looking for innovative cloud-based solutions to get in direct contact with Azure ISV partners that develop innovative solutions.
 
-Azure Marketplace makes it easier to find, obtain, and use apps built and thoroughly tested on the Azure platform, allowing you to be certain that the app can be trusted and runs smoothly on Azure.
+The Marketplace makes it easier to find, obtain, and use apps built and thoroughly tested on the Azure platform, allowing you to be certain that the app can be trusted and runs smoothly on Azure.
 
-Azure Marketplace brings new business channels and users to ISVs, while also greatly simplifying the promotion, management, and deployment of software. We strongly recommend that you use mirror images to deploy the relevant apps. With just a few clicks, you can rapidly obtain system environments or software identical to the mirror image. This means that you don’t need to worry about infrastructure and environment configuration, since you can conveniently create ready-to-use runtime environments for every platform.
+The Marketplace brings new business channels and users to ISVs, while also greatly simplifying the promotion, management, and deployment of software. We strongly recommend that you use mirror images to deploy relevant apps. With just a few clicks, you can rapidly obtain system environments or software identical to the mirror image. This means that you don’t need to worry about infrastructure and environment configuration. You can conveniently create ready-to-use runtime environments for every platform.
 
-##Star Products on Azure Marketplace
+##Star products on the Marketplace
 
 ![](./media/mysql-database-armtemplate-deploymysql/fuwang.png)
 
-###Servinet LNMP Cluster w/ MySQL PaaS-1.0
+###Servinet LNMP Cluster with MySQL PaaS-1.0
 
-The LNMP provided by Shanghai Servinet relies on the latest ARM architecture and provides full cluster deployment (default dual-server deployment). All the virtual machines have been added to high-availability groups and are automatically assigned to different Nginx 1.10.1. The framework is suitable for use with classic Nginx front-end/back-end separation (Nginx active-passive separation).
+The LNMP provided by Shanghai Servinet relies on the latest Azure Resource Manager architecture, and provides full cluster deployment (default dual-server deployment). All the virtual machines have been added to high-availability groups, and are automatically assigned to different Nginx 1.10.1. The framework is suitable for use with Nginx front-end and back-end separation (active-passive separation).
 
-[More Information](https://market.azure.cn/Vhd/Show?vhdId=12005&version=14150)
+[More information](https://market.azure.cn/Vhd/Show?vhdId=12005&version=14150)
 
-[Immediate Deployment](https://market.azure.cn/VM/Launch?vhdId=12005&version=14150) ([requires Azure Marketplace login](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12005%26version%3d14150))
+[Immediate deployment](https://market.azure.cn/VM/Launch?vhdId=12005&version=14150) ([requires sign-in for the Azure Marketplace](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12005%26version%3d14150))
 
 ![](./media/mysql-database-armtemplate-deploymysql/wordpress.png)
 
-###WordPress-4.6.1 (Web app + MySQL PaaS)
+###WordPress-4.6.1 (web app + MySQL PaaS)
 
-WordPress is a very widely used CMS. This app was created with an Azure Resource Manager Template. By using this ARM Template, you can quickly create web apps and MySQL databases, and deploy WordPress website source code. Subsequent maintenance on websites and databases can be performed via the Management Portal for data security, high availability, and more convenient management.
+WordPress is a very widely used content management system. This app was created with a Resource Manager template. Using this template, you can quickly create web apps and MySQL databases, and deploy WordPress website source code. You can perform subsequent maintenance on websites and databases via the Management Portal for data security, high availability, and more convenient management.
 
-[More Information](https://market.azure.cn/Vhd/Show?vhdId=12006&version=14125)
+[More information](https://market.azure.cn/Vhd/Show?vhdId=12006&version=14125)
 
-[Immediate Deployment](https://market.azure.cn/VM/Launch?vhdId=12006&version=14125) ([requires Azure Marketplace login](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12006%26version%3d14125))
+[Immediate deployment](https://market.azure.cn/VM/Launch?vhdId=12006&version=14125) ([requires sign-in for the Azure Marketplace](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12006%26version%3d14125))
 
 ![](./media/mysql-database-armtemplate-deploymysql/zabbix.png)
 
 ###Zabbix 2.2.2 (Ubuntu 14.04 LTS/OpenLogic 7.2)
 
-Zabbix (http://www.zabbix.com) is a free, enterprise class, open-source network monitoring tool that can effectively monitor the status of Windows, Linux, and Unix servers, switches, routers, and other network devices, as well as devices such as printers.
+Zabbix (http://www.zabbix.com) is a free, enterprise class, open-source network monitoring tool. It can effectively monitor the status of Windows, Linux, and Unix servers, switches, routers, and other network devices, as well as devices such as printers.
 
-[More Information](https://market.azure.cn/Vhd/Show?vhdId=12009&version=14123)
+[More information](https://market.azure.cn/Vhd/Show?vhdId=12009&version=14123)
 
-[Immediate Deployment](https://market.azure.cn/VM/Launch?vhdId=12009&version=14123) ([requires Azure Marketplace login](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12009%26version%3d14123))
+[Immediate deployment](https://market.azure.cn/VM/Launch?vhdId=12009&version=14123) ([requires sign-in for the Azure Marketplace](https://market.azure.cn/Sign/Login?url=%2fVhd%2fShow%3fvhdId%3d12009%26version%3d14123))
 
 <!---HONumber=AcomDC_0315_2017_MySql-->
