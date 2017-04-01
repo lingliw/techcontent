@@ -14,8 +14,8 @@
    ms.topic="article"
    ms.tgt_pltfrm="na"
    ms.workload="tbd" 
-   ms.date="01/10/2017"
-   wacn.date="01/25/2017"
+   ms.date="1/31/2017"
+   wacn.date="03/31/2017"
    ms.author="raiye"/>
 
 # Azure 来宾 OS 版本和 SDK 兼容性对照表
