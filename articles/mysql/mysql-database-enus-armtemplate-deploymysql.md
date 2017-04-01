@@ -23,7 +23,7 @@ Use the following PowerShell commands to get started quickly with your deploymen
 	
 	New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
 
-These commands create a resource group and deploy the template to the resource group. The template file is a local file. If this operation is successful, you are able to obtain all the required deployed resources.
+These commands create a resource group and deploy the template to the resource group. The template file is a local file. If this operation is successful, you will obtain all the required deployed resources.
 
 The following code is a fairly complete Resource Manager template in JSON format. You can modify this template to meet your specific requirements.
 
@@ -123,21 +123,7 @@ The following code is a fairly complete Resource Manager template in JSON format
 	              "type": "privileges",
 	              "apiVersion": "2015-09-01",
 	              "dependsOn": [
-	                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/users/', parameters('mysqlUserName'))]",
-	                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/databases/', parameters('mysqldatabaseName'))]"
-	              ],
-	              "properties": {
-	                "level": "ReadWrite"
-	              }
-	            }
-	          ]
-	        }
-	      ]
-	    }
-	  ]
-	}
-
-##Publish an Azure Resource Manager template on the Azure Marketplace
+	                "[concat('Microsoft.MySql/servere Marketplace
 
 You can publish a customized Resource Manager template on the Azure Marketplace to enable users to implement one-click deployment for all cloud services. For detailed instructions, see the [Azure Marketplace Publisher Guide](https://market.azure.cn/Documentation/article/publishguide/).
 
@@ -163,7 +149,21 @@ The LNMP provided by Shanghai Servinet relies on the latest Azure Resource Manag
 
 ###WordPress-4.6.1 (web app + MySQL PaaS)
 
-WordPress is a very widely used content management system. This app was created with a Resource Manager template. Using this template, you can quickly create web apps and MySQL databases, and deploy WordPress website source code. You can perform subsequent maintenance on websites and databases via the Management Portal for data security, high availability, and more convenient management.
+WordPress is a very widely used content management system. This app was created with a Resource Manager template. By using this ARM template, you can quickly create web apps and MySQL databases, ands/', parameters('mysqlServerName'), '/users/', parameters('mysqlUserName'))]",
+	                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/databases/', parameters('mysqldatabaseName'))]"
+	              ],
+	              "properties": {
+	                "level": "ReadWrite"
+	              }
+	            }
+	          ]
+	        }
+	      ]
+	    }
+	  ]
+	}
+
+##Publish an Azure Resource Manager template on the Azur deploy WordPress website source code. You can perform subsequent maintenance on websites and databases via the Management Portal for data security, high availability, and more convenient management.
 
 [More information](https://market.azure.cn/Vhd/Show?vhdId=12006&version=14125)
 
