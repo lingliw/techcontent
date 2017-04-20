@@ -1,14 +1,28 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Azure CDN in China - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN加速, CDN服务, 主流CDN, 多场景加速, 免费CDN, CDN网站加速, 网站加速, 网页加速, 静态加速, 下载加速, VOD加速, 流媒体直播加速, 云服务,  存储账户,缓存刷新, 回源, 云加速, 加速效果, 节点, 流量, CNAME, 带宽, 网速, 防盗链,https加速, 低成本带宽, 访问加速, 小文件加速, 下载加速, 大文件加速, 流媒体加速, HTTPS安全加速, 缓存刷新, 内容预加载, 防盗链, 日志下载, CDN技术文档, CDN帮助文档, CDN FAQ" description="Learn the overview of Azure CDN, advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="4/7/2016"
-    wacn.date="4/7/2016"
-    wacn.lang="cn"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-overview/)
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Overview of Azure CDN in China - Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN加速, CDN服务, 主流CDN, 多场景加速, 免费CDN, CDN网站加速, 网站加速, 网页加速, 静态加速, 下载加速, VOD加速, 流媒体直播加速, 云服务,  存储账户,缓存刷新, 回源, 云加速, 加速效果, 节点, 流量, CNAME, 带宽, 网速, 防盗链,https加速, 低成本带宽, 访问加速, 小文件加速, 下载加速, 大文件加速, 流媒体加速, HTTPS安全加速, 缓存刷新, 内容预加载, 防盗链, 日志下载, CDN技术文档, CDN帮助文档, CDN FAQ
+description: Learn the overview of Azure CDN, advantages, typical scenarios and key features.
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn
+ms.date: 4/7/2016
+wacn.date: 4/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-overview.md)
 
 #Azure CDN安全传输机制
-
 
 内容劫持是指运营商/链路供应者/黑客在路由器上接入旁路设备来侦测经过的HTTP请求，运营商/链路提供者/黑客按照一定的劫持策略识别出目标HTTP请求，并在源站反馈数据之前抢先客户端发送302相应，客户端被迫跳转到其他服务器请求内容，即对URL请求进行劫持。
 
@@ -21,7 +35,6 @@
 + [Azure CDN网内文件安全传输](#step1)
 + [终端用户访问CDN节点和CDN节点回源安全传输](#step2)
 
-
 ##**Azure CDN网内文件安全传输**<a id="step1"></a>
 Azure CDN加速保证CDN网内文件安全传输以及CDN节点文件存储安全。
 
@@ -31,10 +44,9 @@ CDN获取到的内容在CDN网内进行传输，通Azure CDN厂商私有传输�
 
 ###**CDN节点文件存储安全**
 
-1.	CDN节点文件缓存采用经Azure CDN合作厂商优化过的特殊HASH算法将文件映射到不规则的目录下，没有Azure CDN合作厂商HASH算法，是无法找到文件的存储路径的。通过这种方式，可确保文件安全性及隐蔽性，避免非法用户检索存储内容，杜绝缓存的内容被篡改。
+1. CDN节点文件缓存采用经Azure CDN合作厂商优化过的特殊HASH算法将文件映射到不规则的目录下，没有Azure CDN合作厂商HASH算法，是无法找到文件的存储路径的。通过这种方式，可确保文件安全性及隐蔽性，避免非法用户检索存储内容，杜绝缓存的内容被篡改。
 
-2.	 Azure CDN合作厂商对节点存储文件内容进行了加密存储，即使文件存储路径被找到，由于Azure CDN合作厂商对存储文件进行了加密处理，在不知道文件加密算法的情况下，文件的内容即便被获取，也将变成不可识别的内容。可杜绝不法分子通过篡改内容来实现不法目的。
-
+2.  Azure CDN合作厂商对节点存储文件内容进行了加密存储，即使文件存储路径被找到，由于Azure CDN合作厂商对存储文件进行了加密处理，在不知道文件加密算法的情况下，文件的内容即便被获取，也将变成不可识别的内容。可杜绝不法分子通过篡改内容来实现不法目的。
 
 ##**终端用户访问CDN节点和CDN节点回源安全传输**<a id="step2"></a>
 
@@ -46,7 +58,7 @@ CDN获取到的内容在CDN网内进行传输，通Azure CDN厂商私有传输�
 
 Azure CDN合作厂商代为客户申请并将SSL证书部署到CDN节点->终端用户发起HTTPS请求连接-> SSL握手成功后将请求数据返回给用户。
 
-如需开通HTTPS加速请参阅[Azure CDN HTTPS 加速服务](https://www.azure.cn/documentation/articles/cdn-https-how-to/)。
+如需开通HTTPS加速请参阅[Azure CDN HTTPS 加速服务](./cdn-https-how-to.md)。
 
 ###**防劫持智能路由选择**
 
@@ -88,7 +100,3 @@ Azure CDN URI加密防劫持功能通过对URI进行一定形式的加密，使�
 **访问模式**
 
 源站根据协商的加密算法和KEY，针对请求的URI进行加密->用户发起请求到CDN节点->CDN节点进行解密->响应给客户端
-
-
-
-

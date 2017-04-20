@@ -1,9 +1,26 @@
-<properties linkid="" urlDisplayName="" pageTitle="使用MySQL Database on Azure部署Joomla!应用 - Azure微软云" metaKeywords="Azure云, 技术文档, 文档与资源, MySQL, 数据库, Joomla, Joomla!, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="本文详细解释了如何使用MySQL PaaS服务部署Joomla!应用的相关步骤。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />  
+---
+linkid: ''
+urlDisplayName: ''
+title: 使用MySQL Database on Azure部署Joomla!应用 - Azure微软云
+metaKeywords: Azure云, 技术文档, 文档与资源, MySQL, 数据库, Joomla, Joomla!, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: 本文详细解释了如何使用MySQL PaaS服务部署Joomla!应用的相关步骤。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="09/22/2016" wacn.date="09/22/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 09/22/2016
+wacn.date: 09/22/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-tech-overview/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-tech-overview.md)
 
 #使用MySQL Database on Azure部署Joomla!应用
 
@@ -36,7 +53,7 @@ Joomla!是一套自由、开放源代码的内容管理系统，可用来搭建�
 3.3 单击“创建”，静待Azure完成操作。
 
 ![](./media/mysql-database-joomla-setup/3.1-3.3.png)
- 
+
 3.4 服务器完成创建后，进入该服务器的数据库管理页面，单击底部“添加”按钮创建数据库。
 
 3.5 输入数据库名称，完成数据库的创建（本例中创建的数据库名称为joomlademodb001）。

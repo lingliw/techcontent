@@ -1,14 +1,31 @@
-<properties linkid="" urlDisplayName="" pageTitle="MySQL服务问题 - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ" description="针对用户在使用MySQL 数据库 on Azure中遇到的一些常见技术问题,提供快速解答。如果您仍存有疑问,欢迎联系技术支持。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: MySQL服务问题 - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ
+description: 针对用户在使用MySQL 数据库 on Azure中遇到的一些常见技术问题,提供快速解答。如果您仍存有疑问,欢迎联系技术支持。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="09/21/2016" wacn.date="09/21/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 09/21/2016
+wacn.date: 09/21/2016
+
+---
 
 #连接问题
-> [AZURE.SELECTOR]
-- [全部问题](/documentation/articles/mysql-database-tech-faq/)
-- [服务咨询](/documentation/articles/mysql-database-serviceinquiry/)
-- [连接问题](/documentation/articles/mysql-database-connectioninquiry/)
-- [安全性咨询](/documentation/articles/mysql-database-securityinquiry/)
-- [兼容性问题](/documentation/articles/mysql-database-compatibilityinquiry/)
+> [!div class="op_single_selector"]
+>- [全部问题](./mysql-database-tech-faq.md)
+>- [服务咨询](./mysql-database-serviceinquiry.md)
+>- [连接问题](./mysql-database-connectioninquiry.md)
+>- [安全性咨询](./mysql-database-securityinquiry.md)
+>- [兼容性问题](./mysql-database-compatibilityinquiry.md)
 
 ## **创建数据库后连接不上MySQL on Azure?**
 
@@ -20,10 +37,10 @@
 ## **为什么数据库连接时常出现超时中断?**
 
 这是由于Azure流量管理器的限制引起的。我们建议您在管理门户或PowerShell中将服务器的参数手动设置为60-240s之间的任意数值，推荐120s。对于10月后创建的实例，我们已经将缺省值调整为120s，可选范围为60-240s，您无需手动更改。（此项调整仅对10月后创建的实例有效）
-	
+
 ## **MySQL Database on Azure 并发连接量不够用?**
-	
-为了保证连接可以高效的得到充分利用，我们建议您使用连接池(connection pool)或是长连接(persistent connection)连接数据库。查看[如何高效连接到MySQL Database on Azure](/documentation/articles/mysql-database-connection-pool/);
+
+为了保证连接可以高效的得到充分利用，我们建议您使用连接池(connection pool)或是长连接(persistent connection)连接数据库。查看[如何高效连接到MySQL Database on Azure](./mysql-database-connection-pool.md);
 
 ##**在设置连接池后，MySQL Database on Azure 访问时快时慢？**
 
@@ -31,7 +48,7 @@
 
 ##**如何在客户端配置验证机制确认长连接有效性?**
 
-以Tomcat JDBC连接池为例，通过设定testOnBorrow参数，在有新的请求时，如果连接池中有闲置的可用连接，在返回这个闲置连接之前，连接池会自动验证这个连接的有效性，如果有效，直接返回，如果无效，连接池会回收这个无效连接，重新建立一个新的有效连接并返回。这样会有效地保障数据库的访问速度。具体配置请参考我们的技术文档：[配置验证机制验证连接池有效](https://www.azure.cn/documentation/articles/mysql-database-validationquery/)。
+以Tomcat JDBC连接池为例，通过设定testOnBorrow参数，在有新的请求时，如果连接池中有闲置的可用连接，在返回这个闲置连接之前，连接池会自动验证这个连接的有效性，如果有效，直接返回，如果无效，连接池会回收这个无效连接，重新建立一个新的有效连接并返回。这样会有效地保障数据库的访问速度。具体配置请参考我们的技术文档：[配置验证机制验证连接池有效](./mysql-database-validationquery.md)。
 
 ## **JDBC连接MySQL on Azure报IllegalArgumentException，错误信息显示“URLDecoder: Illegal hex characters in escape (%) pattern - For input string: ...”。**
 

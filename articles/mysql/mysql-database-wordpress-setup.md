@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="如何使用MySQL 数据库 on Azure来配置WordPress Web 应用- Azure 微软云" metaKeywords="Azure 云，技术文档，文档与资源，MySQL,数据库，WordPress, Web 应用配置,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="WordPress是一种使用非常广泛的CMS系统。本文介绍如何使用 MySQL 数据库 on Azure 和 Azure Web应用来安装配置WordPress。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor=""/>
+---
+linkid: ''
+urlDisplayName: ''
+title: 如何使用MySQL 数据库 on Azure来配置WordPress Web 应用- Azure 微软云
+metaKeywords: Azure 云，技术文档，文档与资源，MySQL,数据库，WordPress, Web 应用配置,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: WordPress是一种使用非常广泛的CMS系统。本文介绍如何使用 MySQL 数据库 on Azure 和 Azure Web应用来安装配置WordPress。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="11/22/2016" wacn.date="11/22/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 11/22/2016
+wacn.date: 11/22/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-wordpress-setup/)
-- [English](/documentation/articles/mysql-database-enus-wordpress-setup/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-wordpress-setup.md)
+> * [English](./mysql-database-enus-wordpress-setup.md)
 
 # 如何使用MySQL 数据库 on Azure来配置WordPress Web 应用
 
@@ -24,14 +41,14 @@ WordPress是一种使用非常广泛的CMS系统。本文介绍如何使用 MySQ
 
 ![允许的服务][2]
 
-
 ### 新建供WordPress使用的MySQL数据库（必备步骤）  
 
 将工作区切至“数据库”，点击屏幕下方“新建”按钮进行数据库的创建。
 
 ![新建数据库][3]
 
-> [AZURE.NOTE] **注意**：用户需在管理门户中手动创建MySQL数据库。如果忽略此步骤，将会造成WordPress部署失败。
+> [!NOTE]
+> **注意**：用户需在管理门户中手动创建MySQL数据库。如果忽略此步骤，将会造成WordPress部署失败。
 
 ## 步骤 3:新建Web应用  
 
@@ -45,9 +62,10 @@ WordPress是一种使用非常广泛的CMS系统。本文介绍如何使用 MySQ
 
 ### 部署WordPress安装文件  
 
-接下来，将第一步中解压出来的所有WordPress安装文件部署到刚创建的Web应用中。这里建议使用Git来做部署操作。具体方式请参见[从源控件发布到 Azure Web 应用](/documentation/articles/app-service-deploy-local-git/)
+接下来，将第一步中解压出来的所有WordPress安装文件部署到刚创建的Web应用中。这里建议使用Git来做部署操作。具体方式请参见[从源控件发布到 Azure Web 应用](../app-service-web/app-service-deploy-local-git.md)
 
-> [AZURE.NOTE] **注意**：步骤3 主要针对WordPress的新用户，若您已经使用Azure Web应用并已成功部署WordPress安装文件并开始使用，出于内容一致性的目的，建议您将数据进行导出，重新安装部署WordPress并与新建的MySql数据库成功连接之后，再进行数据导入。具体的Wordpress数据导入导出，请通过WordPress控制台来完成（如下图所示）。  
+> [!NOTE]
+> **注意**：步骤3 主要针对WordPress的新用户，若您已经使用Azure Web应用并已成功部署WordPress安装文件并开始使用，出于内容一致性的目的，建议您将数据进行导出，重新安装部署WordPress并与新建的MySql数据库成功连接之后，再进行数据导入。具体的Wordpress数据导入导出，请通过WordPress控制台来完成（如下图所示）。  
 
 ![WordPress导入导出][9]
 
@@ -71,14 +89,11 @@ WordPress是一种使用非常广泛的CMS系统。本文介绍如何使用 MySQ
 
 点击进行安装，完成您的WordPress部署工作。
 
-
 ## 步骤 5:使用WordPress  
 
 在完成上述步骤后，访问您之前创建的Web应用，您将看到已经生效的WordPress主界面。现在请开始您的WordPress使用之旅！  
 
 ![安装WordPress][8] 
-
-
 
 <!--Image references-->
 [1]: ./media/mysql-database-wordpress-setup/001.png

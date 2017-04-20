@@ -1,19 +1,34 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Overview of Azure Content Delivery Network in China: Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN acceleration, CDN service, mainstream CDN, multi-scenario acceleration, free CDN, CDN website acceleration, website acceleration, webpage acceleration, static acceleration, download acceleration, VOD acceleration, streaming media webcast acceleration, cloud service,  storage account, cache refresh, return to origin, cloud acceleration, acceleration results, node, traffic, CNAME, bandwidth, network speed, anti-theft chain, https acceleration, low-cost bandwidth, access acceleration, small file acceleration, download acceleration, large file acceleration, streaming media acceleration, HTTPS secure acceleration, cache refresh, content pre-loading, anti-theft chain, log download, CDN technical documentation, CDN help files, CDN FAQs" description="Get an overview of Azure Content Delivery Network and its advantages, typical scenarios and key features." metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn_en"
-    ms.date="7/7/2016"
-    wacn.date="7/7/2016"
-    wacn.lang="en"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-overview/)
-- [English](/documentation/articles/cdn-enus-overview/) 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Overview of Azure Content Delivery Network in China: Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN, CDN acceleration, CDN service, mainstream CDN, multi-scenario acceleration, free CDN, CDN website acceleration, website acceleration, webpage acceleration, static acceleration, download acceleration, VOD acceleration, streaming media webcast acceleration, cloud service,  storage account, cache refresh, return to origin, cloud acceleration, acceleration results, node, traffic, CNAME, bandwidth, network speed, anti-theft chain, https acceleration, low-cost bandwidth, access acceleration, small file acceleration, download acceleration, large file acceleration, streaming media acceleration, HTTPS secure acceleration, cache refresh, content pre-loading, anti-theft chain, log download, CDN technical documentation, CDN help files, CDN FAQs
+description: Get an overview of Azure Content Delivery Network and its advantages, typical scenarios and key features.
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn_en
+ms.date: 7/7/2016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-overview.md)
+> * [English](./cdn-enus-overview.md) 
 # Overview of Azure Content Delivery Network
 
 The Azure Content Delivery Network caches static content in storage blobs, cloud services, and websites on the Azure platform by using large numbers of physical nodes distributed across Mainland China. This provides media services with acceleration for streaming content delivery and offers developers solutions for delivering high-bandwidth content. This service also currently supports the use of origins that have not been deployed on the Azure platform.
 
-For more details and pricing for Content Delivery Network, see [Introduction to the Azure Content Delivery Network service](/home/features/cdn/).
+For more details and pricing for Content Delivery Network, see [Introduction to the Azure Content Delivery Network service](https://www.azure.cn/home/features/cdn/).
 
-If you are an existing user of the CDN, visit the [Azure Content Delivery Network management portal](https://manage.windowsazure.cn) to manage your CDN domains. See [Using Azure Content Delivery Network](/documentation/articles/cdn-enus-how-to-use/) for a more specific user guide.
+If you are an existing user of the CDN, visit the [Azure Content Delivery Network management portal](https://manage.windowsazure.cn) to manage your CDN domains. See [Using Azure Content Delivery Network](./cdn-enus-how-to-use.md) for a more specific user guide.
 
 + [What is a Content Delivery Network?](#step1)
 + [Advantages of Content Delivery Network](#step2)
@@ -22,14 +37,12 @@ If you are an existing user of the CDN, visit the [Azure Content Delivery Networ
 ## What is Content Delivery Network?<a id="step1"></a>
 
 CDN stands for content delivery network. Virtually all large-scale websites use the CDN technology today, but the technology is by no means exclusive to large websites. The basic purpose of CDN is to avoid bottlenecks and other parts of the Internet that could affect data transfer rates and stability and make content transfers faster and more stable. By placing node servers in different places across the network and building a more intelligent layer of virtual networks above the internet infrastructure, CDN systems can redirect user requests in real time to the node closest to the user based on the status of network traffic and node connections and loads, as well as distance to the user and response times.
- 
+
 Taking the Microsoft website as an example, Microsoft may be an American company, but its customers are distributed across the globe. This means that there are users in every part of the world who need to access the Microsoft website or download product updates from Microsoft Update. If the website servers were deployed only in a single location in the US, users in the areas around this location could undoubtedly achieve satisfactory speeds when accessing the website, as they are close the server and network delays would also be minimal. However, a user in China who is downloading product updates from a server in this US location would require that all data packets were transferred back and forth between China and the US. As the total length of the route extends to thousands of kilometers, this would cause enormous delays.
 
 However, this problem can be solved by placing CDN nodes in China. The nodes automatically cache data to data centers in the major cities throughout China, shortening the distance between users and content and thereby reducing the time required to transfer data. CDN caching makes it possible for users to obtain content from a nearby location, which resolves the issue of Internet network congestion and increases the response speed for users who are accessing websites and apps.
 
-
 ![][1]
-
 
 ## Advantages<a id="step2"></a>
 
@@ -38,7 +51,6 @@ However, this problem can be solved by placing CDN nodes in China. The nodes aut
 Azure CDN supports a number of different Azure services, including storage blobs, cloud services, websites, and media services, providing the user with comprehensive, one-stop cloud service support.
 
 ![][2]
-
 
 ### Full self-service model
 
@@ -51,7 +63,6 @@ Traditional CDN services require a large amount of complex and tedious configura
 ### Dynamic optimization of all network nodes
 
 The CDN service integrates mainstream CDN providers in China to provide comprehensive acceleration types from static webpage acceleration, large files  download acceleration (such as software installation/update packages, game clients, apps and videos), to video on demand (VoD) and live-streaming acceleration for online video websites and online educational websites, thereby meeting the delivery needs of different types of resource. It also provides full network coverage that spans the entire region for mainstream telecoms carriers, including China Telecom, China Unicom, and China Mobile, as well as other ISPs, and allocates user requests to the optimal node by using load-balancing technology and intelligent dispatch strategies based on the real-time network status.
-
 
 ### Reduces costs
 
@@ -79,7 +90,6 @@ As online video and media services has grown popular over the last few years, in
 
 Security will always be the issue that users are most concerned about. CDN not only provides comprehensive acceleration for HTTP protocol, but also offers a dedicated HTTPS acceleration service for scenarios that need to support HTTPS protocol. In terms of usage scenarios, this service could be categorized as a small file acceleration service, but it also provides certain optimization services that use dynamic routing optimization.
 
-
 ## Functions<a id="step3"></a>
 
 ### Full self-service creation and management of CDN endpoints
@@ -96,7 +106,6 @@ Azure CDN management portal allows easy, quick, and clear checking of traffic an
 
 ![][8]
 
-
 ### Cache rule configuration
 
 The system already provides default cache rules for various acceleration types. Users can also customize and edit rules according to their actual requirements.
@@ -108,7 +117,6 @@ The system already provides default cache rules for various acceleration types. 
 CDN provides content access control features to address the specific needs of users in China, including an antitheft chain. Users can use these features to take better and more effective control over their content, to achieve the goal of keeping content protected.
 
 ![][10]
-
 
 ### Cache refresh
 

@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="Use MySQL Database on Azure to configure WordPress websites – Azure cloud" metakeywords="Azure Cloud, technical documentation, documents and resources, MySQL, database, Wordpress, website configuration, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="WordPress is a very widely used CMS. This article explains how to use MySQL Database on Azure and Azure Web Apps to install and configure WordPress." metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor=""/>
+---
+linkid: ''
+urlDisplayName: ''
+title: Use MySQL Database on Azure to configure WordPress websites – Azure cloud
+metakeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, Wordpress, website configuration, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: WordPress is a very widely used CMS. This article explains how to use MySQL Database on Azure and Azure Web Apps to install and configure WordPress.
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql_en" ms.date="11/22/2016" wacn.date="11/22/2016" wacn.lang="en" />
+ms.service: mysql_en
+ms.date: 11/22/2016
+wacn.date: 11/22/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-wordpress-setup/)
-- [English](/documentation/articles/mysql-database-enus-wordpress-setup/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-wordpress-setup.md)
+> * [English](./mysql-database-enus-wordpress-setup.md)
 
 # Use MySQL Database on Azure to configure WordPress websites
 
@@ -24,14 +41,14 @@ Use the [Azure portal](https://manage.windowsazure.cn) to create your MySQL serv
 
 ![Allowed Services][2]
 
-
 ### Create a new MySQL database for WordPress to use (essential)  
 
 Switch the workspace to “database,” and click “Create” at the bottom of the screen to create the new database.
 
 ![Creating New Databases][3]
 
-> [AZURE.NOTE]Users must manually create the MySQL database in the Azure portal. The WordPress deployment will fail if you miss this step.**
+> [!NOTE]
+>Users must manually create the MySQL database in the Azure portal. The WordPress deployment will fail if you miss this step.**
 
 ## Step 3: Create a new web app  
 
@@ -45,9 +62,10 @@ Switch the workspace to “database,” and click “Create” at the bottom of 
 
 ### Deploy the WordPress installation files  
 
-Next, deploy all the WordPress installation files you uncompressed in Step 1 to the new web app. At this point, we recommend that you use Git to complete the deployment process. Refer to [Publishing to Azure websites from source control](/documentation/articles/app-service-deploy-local-git/) for the specific method.
+Next, deploy all the WordPress installation files you uncompressed in Step 1 to the new web app. At this point, we recommend that you use Git to complete the deployment process. Refer to [Publishing to Azure websites from source control](../app-service-web/app-service-deploy-local-git.md) for the specific method.
 
-> [AZURE.NOTE]Step 3 is chiefly intended for new WordPress users. Some of you have already used Azure Web Apps and successfully deployed the WordPress installation files and begun using them. To keep the content consistent, we recommend that you export the data and then reimport it after you reinstall and deploy WordPress and successfully connect to a new MySQL database. Complete the specific WordPress data import and export procedures by using the WordPress control panel (as shown in the image below).
+> [!NOTE]
+>Step 3 is chiefly intended for new WordPress users. Some of you have already used Azure Web Apps and successfully deployed the WordPress installation files and begun using them. To keep the content consistent, we recommend that you export the data and then reimport it after you reinstall and deploy WordPress and successfully connect to a new MySQL database. Complete the specific WordPress data import and export procedures by using the WordPress control panel (as shown in the image below).
 
 ![Importing and Exporting With WordPress][9]
 
@@ -71,14 +89,11 @@ If you see what appears in the image below, WordPress is now connected to MySQL.
 
 Click to proceed with the installation, and finish deploying WordPress.
 
-
 ## Step 5: Use WordPress  
 
 Once you have completed the process above, if you access the web app that you created earlier, you will find that the main WordPress interface now works. You are ready to start using WordPress.
 
 ![Installing WordPress][8]
-
-
 
 <!--Image references-->
 [1]: ./media/mysql-database-wordpress-setup/001-en.png

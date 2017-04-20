@@ -1,14 +1,31 @@
-<properties linkid="" urlDisplayName="" pageTitle="使用PowerShell管理MySQL Database on Azure - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,入门指南,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,Azure MySQL PowerShell" description="本文介绍如何通过PowerShell实现更多MySQL Database on Azure的查询、创建、修改、删除等操作。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="sofia" solutions="" manager="" editor="" />  
+---
+linkid: ''
+urlDisplayName: ''
+title: 使用PowerShell管理MySQL Database on Azure - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,入门指南,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,Azure MySQL PowerShell
+description: 本文介绍如何通过PowerShell实现更多MySQL Database on Azure的查询、创建、修改、删除等操作。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: sofia
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="03/24/2017" wacn.date="03/24/2017" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 03/24/2017
+wacn.date: 03/24/2017
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-commandlines/)
-- [English](/documentation/articles/mysql-database-enus-commandlines/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-commandlines.md)
+> * [English](./mysql-database-enus-commandlines.md)
 
 #使用PowerShell管理MySQL Database on Azure
 
-本文主要介绍如何通过PowerShell实现更多MySQL Database on Azure的创建、查看、删除、更改等操作。建议您先阅读[利用Azure 资源管理器与 PowerShell 来部署使用MySQL Database on Azure](/documentation/articles/mysql-database-etoe-powershell/),该文介绍了如何下载使用Azure PowerShell, 如何利用PowerShell来快速创建MySQL Database on Azure数据服务。
+本文主要介绍如何通过PowerShell实现更多MySQL Database on Azure的创建、查看、删除、更改等操作。建议您先阅读[利用Azure 资源管理器与 PowerShell 来部署使用MySQL Database on Azure](./mysql-database-etoe-powershell.md),该文介绍了如何下载使用Azure PowerShell, 如何利用PowerShell来快速创建MySQL Database on Azure数据服务。
 
 在开始之前，请确保已将 Azure PowerShell 准备就绪。
 
@@ -83,14 +100,16 @@ New-AzureRmResource -ResourceType "Microsoft.MySql/servers" -ResourceName testre
 ## <a id="view"></a>3. 查看操作
 通过Get指令可以查看当前MySQL服务器、数据库、用户、用户权限、备份、防火墙规则等列表,也可以查看详细参数配置。
 ###3.1 查看服务器列表
->[AZURE.NOTE] ** 注意:“在Azure管理门户上创建的实例，按照实例所处的区域分别在默认资源组：Default-MySql-ChinaEast以及Default-MySql-ChinaNorth**
+>[!NOTE]
+> ** 注意:“在Azure管理门户上创建的实例，按照实例所处的区域分别在默认资源组：Default-MySql-ChinaEast以及Default-MySql-ChinaNorth**
 
 编辑运行以下命令，查看当前所有服务器列表
 
 ```
 Get-AzureRmResource -ResourceType "Microsoft.MySql/servers"  -ApiVersion 2015-01-01 -ResourceGroupName resourcegroupchinaeast 
 ```
->[AZURE.NOTE] ** 注意:与其他指令不同，查看服务器中的“-ApiVersion 2015-01-01”，指向ARM的API，其他指令中，均为“-ApiVersion 2015-09-01”，指向MySQL的API。**
+>[!NOTE]
+> ** 注意:与其他指令不同，查看服务器中的“-ApiVersion 2015-01-01”，指向ARM的API，其他指令中，均为“-ApiVersion 2015-09-01”，指向MySQL的API。**
 
 ###3.2 查看数据库列表及参数
 编辑运行以下命令，查看当前资源组内某个服务器的所有数据库列表：
@@ -178,10 +197,10 @@ Set-AzureRmResource -ResourceType "Microsoft.MySql/servers/firewallRules" -Resou
 ```
 Set-AzureRmResource -ResourceType "Microsoft.MySql/servers" -ResourceName testPSH -ApiVersion 2015-09-01 -ResourceGroupName resourcegroupChinaEast -PropertyObject @{options=@{wait_timeout=70}} -UsePatchSemantics
 ```
-对其他参数的修改，可以参考下面Json文件的定义，参数的有效值范围可参考[定制MySQL Database on Azure服务器参数](/documentation/articles/mysql-database-advanced-settings/)：
+对其他参数的修改，可以参考下面Json文件的定义，参数的有效值范围可参考[定制MySQL Database on Azure服务器参数](./mysql-database-advanced-settings.md)：
 
 ```
-	"options": {
+    "options": {
           "type": "object",
           "properties": {
             "div_precision_increment": {
@@ -236,7 +255,6 @@ Set-AzureRmResource -ResourceType "Microsoft.MySql/servers" -ResourceName testPS
 Set-AzureRmResource -ResourceType "Microsoft.MySql/servers " -ResourceName testPSH -ApiVersion 2015-09-01 -ResourceGroupName resourcegroupChinaEast -SkuObject @{name="MS4"} -UsePatchSemantics
 ```
 
-	
 ## <a id="delete"></a>5. 删除操作
 通过Remove指令可以删除MySQL服务器、数据库、用户、备份、防火墙规则等。
 ###5.1 删除服务器

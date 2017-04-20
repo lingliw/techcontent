@@ -1,19 +1,36 @@
-<properties linkid="" urlDisplayName="" pageTitle="MySQL服务问题 - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,数据安全访问,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ" description="针对用户在使用MySQL 数据库 on Azure中遇到的一些常见技术问题,提供快速解答。如果您仍存有疑问,欢迎联系技术支持。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: MySQL服务问题 - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,数据安全访问,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ
+description: 针对用户在使用MySQL 数据库 on Azure中遇到的一些常见技术问题,提供快速解答。如果您仍存有疑问,欢迎联系技术支持。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="1/10/2017" wacn.date="1/10/2017" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 1/10/2017
+wacn.date: 1/10/2017
+
+---
 
 #主从复制问题
 
-> [AZURE.SELECTOR]
-- [全部问题](/documentation/articles/mysql-database-tech-faq/)
-- [服务咨询](/documentation/articles/mysql-database-serviceinquiry/)
-- [连接问题](/documentation/articles/mysql-database-connectioninquiry/)
-- [安全性咨询](/documentation/articles/mysql-database-securityinquiry/)
-- [兼容性问题](/documentation/articles/mysql-database-compatibilityinquiry/)
-- [主从复制问题](/documentation/articles/mysql-database-readreplicainquiry/)
+> [!div class="op_single_selector"]
+>- [全部问题](./mysql-database-tech-faq.md)
+>- [服务咨询](./mysql-database-serviceinquiry.md)
+>- [连接问题](./mysql-database-connectioninquiry.md)
+>- [安全性咨询](./mysql-database-securityinquiry.md)
+>- [兼容性问题](./mysql-database-compatibilityinquiry.md)
+>- [主从复制问题](./mysql-database-readreplicainquiry.md)
 
 ## **我想更改主实例的性能版本，比如从MS4升到MS5，或者MS6降到MS5。从属实例的版本会随着更新吗？**
- 
+
 从属实例的性能版本不会随之改变，但用户可以根据需要另行改变从属实例的性能版本。
 
 ## **我想使用主从复制功能，但是我的数据库实例现在是5.5版本，我该怎么做？**

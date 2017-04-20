@@ -1,9 +1,26 @@
-<properties linkid="" urlDisplayName="" pageTitle="使用Azure资源管理器模板部署MySQL PaaS - Azure微软云" metaKeywords="Azure云, 技术文档, 文档与资源, MySQL, 数据库, 资源管理器, ARM, ARM Template, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="本文介绍如何通过Azure资源管理器模板（ARM Template）快速部署MySQL PaaS以及其它热门应用。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />  
+---
+linkid: ''
+urlDisplayName: ''
+title: 使用Azure资源管理器模板部署MySQL PaaS - Azure微软云
+metaKeywords: Azure云, 技术文档, 文档与资源, MySQL, 数据库, 资源管理器, ARM, ARM Template, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: 本文介绍如何通过Azure资源管理器模板（ARM Template）快速部署MySQL PaaS以及其它热门应用。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="03/14/2017" wacn.date="03/14/2017" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 03/14/2017
+wacn.date: 03/14/2017
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-armtemplate-deploymysql/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-armtemplate-deploymysql.md)
 
 #使用Azure资源管理器模板部署MySQL PaaS
 
@@ -19,123 +36,127 @@
 
 若要快速开始进行部署，请使用以下PowerShell命令（以Azure PowerShell 1.0.0+版本为例）：
 
-	New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "chinaeast"
-	
-	New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
+```
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "chinaeast"
+
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile c:\MyTemplates\example.json
+```
 
 这些命令会创建一个资源组，并将模板部署到该资源组。模板文件是本地文件。如果此操作成功，则你会获得所需的全部部署资源。
 
 以下内容为一个相对完整的资源管理器模板，采用JSON文件格式。你可以修改此模板，以符合具体需要。
 
-	{
-	  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-	  "contentVersion": "1.0.0.0",
-	  "parameters": {
-	    "mysqlServerName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "MySql 服务器的名字. 最大长度为64个字母数字字符. 请通过 @mysqlServerName.mysqldb.chinacloudapi.cn访问MySql数据库. 管理配置MySql数据库请访问 https://manage.windowsazure.cn"
-	      }
-	    },
-	    "mysqlServerSku": {
-	      "type": "string",
-	      "defaultValue": "MS2",
-	      "allowedValues": [
-	        "MS1", "MS2", "MS3", "MS4", "MS5", "MS6"
-	      ],
-	      "metadata": {
-	        "description": "MySql 服务器的性能版本，价格详情请访问 https://www.azure.cn/pricing/details/mysql/"
-	      }
-	    },
-	    "mysqlServerVersion": {
-	      "type": "string",
-	      "allowedValues": [
-	        "5.6", "5.7", "5.5"
-	       ],
-	      "defaultValue": "5.6",
-	      "metadata": {
-	        "description": "MySQL服务器版本. "
-	      }
-	    },
-	    "mysqlUserName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "MySql 服务器登录名。登录名格式为 ‘MySQL服务器名%登录名’，长度小于16个字符。用户名和密码规范请参考： http://dev.mysql.com/doc/refman/5.6/en/user-names.html"
-	      }
-	    },
-	    "mysqlPassword": {
-	      "type": "securestring",
-	      "metadata": {
-	        "description": "MySql 服务器登录密码。长度必须大于8个字符，小于64个字符。用户名和密码规范请参考： http://dev.mysql.com/doc/refman/5.6/en/user-names.html"
-	      }
-	    },
-	    "mysqldatabaseName": {
-	      "type": "string",
-	      "metadata": {
-	        "description": "数据库名字。必须小于64个字符，其它命名规范请参考: http://dev.mysql.com/doc/refman/5.6/en/identifiers.html"
-	      }
-	    }
-	  },
-	
-	  "resources": [   
-	    {
-	      "type": "Microsoft.MySql/servers",
-	      "name": "[parameters('mysqlServerName')]",
-	      "apiVersion": "2015-09-01",
-	      "location": "[resourceGroup().location]",
-	      "tags": {
-	        "displayName": "[parameters('mysqlServerName')]"
-	      },
-	      "sku": { "name": "[parameters('mysqlServerSku')]" },
-	      "properties": {
-	        "version": "[parameters('mysqlServerVersion')]",
-	        "AllowAzureServices": true
-	      },
-	      "resources": [
-	        {
-	          "name": "[parameters('mysqlUserName')]",
-	          "type": "users",
-	          "apiVersion": "2015-09-01",
-	          "dependsOn": [
-	            "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'))]"
-	          ],
-	          "properties": {
-	            "password": "[parameters('mysqlPassword')]"
-	          }
-	        },
-	        {
-	          "name": "[parameters('mysqldatabaseName')]",
-	          "type": "databases",
-	          "tags": {
-	            "displayName": "[parameters('mysqldatabaseName')]"
-	          },
-	          "apiVersion": "2015-09-01",
-	          "dependsOn": [
-	            "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'))]"
-	          ],
-	          "properties": {
-	           "Charset": "utf8",
-	           "Collation": "utf8_general_ci"
-              },
-	          "resources": [
-	            {
-	              "name": "[parameters('mysqlUserName')]",
-	              "type": "privileges",
-	              "apiVersion": "2015-09-01",
-	              "dependsOn": [
-	                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/users/', parameters('mysqlUserName'))]",
-	                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/databases/', parameters('mysqldatabaseName'))]"
-	              ],
-	              "properties": {
-	                "level": "ReadWrite"
-	              }
-	            }
-	          ]
-	        }
-	      ]
-	    }
-	  ]
-	}
+```
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "mysqlServerName": {
+      "type": "string",
+      "metadata": {
+        "description": "MySql 服务器的名字. 最大长度为64个字母数字字符. 请通过 @mysqlServerName.mysqldb.chinacloudapi.cn访问MySql数据库. 管理配置MySql数据库请访问 https://manage.windowsazure.cn"
+      }
+    },
+    "mysqlServerSku": {
+      "type": "string",
+      "defaultValue": "MS2",
+      "allowedValues": [
+        "MS1", "MS2", "MS3", "MS4", "MS5", "MS6"
+      ],
+      "metadata": {
+        "description": "MySql 服务器的性能版本，价格详情请访问 https://www.azure.cn/pricing/details/mysql/"
+      }
+    },
+    "mysqlServerVersion": {
+      "type": "string",
+      "allowedValues": [
+        "5.6", "5.7", "5.5"
+       ],
+      "defaultValue": "5.6",
+      "metadata": {
+        "description": "MySQL服务器版本. "
+      }
+    },
+    "mysqlUserName": {
+      "type": "string",
+      "metadata": {
+        "description": "MySql 服务器登录名。登录名格式为 ‘MySQL服务器名%登录名’，长度小于16个字符。用户名和密码规范请参考： http://dev.mysql.com/doc/refman/5.6/en/user-names.html"
+      }
+    },
+    "mysqlPassword": {
+      "type": "securestring",
+      "metadata": {
+        "description": "MySql 服务器登录密码。长度必须大于8个字符，小于64个字符。用户名和密码规范请参考： http://dev.mysql.com/doc/refman/5.6/en/user-names.html"
+      }
+    },
+    "mysqldatabaseName": {
+      "type": "string",
+      "metadata": {
+        "description": "数据库名字。必须小于64个字符，其它命名规范请参考: http://dev.mysql.com/doc/refman/5.6/en/identifiers.html"
+      }
+    }
+  },
+
+  "resources": [   
+    {
+      "type": "Microsoft.MySql/servers",
+      "name": "[parameters('mysqlServerName')]",
+      "apiVersion": "2015-09-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "[parameters('mysqlServerName')]"
+      },
+      "sku": { "name": "[parameters('mysqlServerSku')]" },
+      "properties": {
+        "version": "[parameters('mysqlServerVersion')]",
+        "AllowAzureServices": true
+      },
+      "resources": [
+        {
+          "name": "[parameters('mysqlUserName')]",
+          "type": "users",
+          "apiVersion": "2015-09-01",
+          "dependsOn": [
+            "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'))]"
+          ],
+          "properties": {
+            "password": "[parameters('mysqlPassword')]"
+          }
+        },
+        {
+          "name": "[parameters('mysqldatabaseName')]",
+          "type": "databases",
+          "tags": {
+            "displayName": "[parameters('mysqldatabaseName')]"
+          },
+          "apiVersion": "2015-09-01",
+          "dependsOn": [
+            "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'))]"
+          ],
+          "properties": {
+           "Charset": "utf8",
+           "Collation": "utf8_general_ci"
+          },
+          "resources": [
+            {
+              "name": "[parameters('mysqlUserName')]",
+              "type": "privileges",
+              "apiVersion": "2015-09-01",
+              "dependsOn": [
+                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/users/', parameters('mysqlUserName'))]",
+                "[concat('Microsoft.MySql/servers/', parameters('mysqlServerName'), '/databases/', parameters('mysqldatabaseName'))]"
+              ],
+              "properties": {
+                "level": "ReadWrite"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
 ##发布ARM Template至Azure镜像市场
 

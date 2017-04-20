@@ -1,12 +1,27 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure Content Delivery Network FAQs: Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN FAQ, CDN FAQS, origin traffic, ICP record number, CDN default cache rules, origin domain name, subscribe, CNAME, download acceleration, Web acceleration, website acceleration, live streaming acceleration, VOD acceleration, video on demand acceleration, CDN price, CDN fees, technical documentation, help files" description="Find answers to common service consulting questions or inquiries related to Azure Content Delivery Network" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn_en"
-    ms.date=""
-    wacn.date="2/23/2016"
-    wacn.lang="en"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-faq-service-inquiry/)
-- [English](/documentation/articles/cdn-enus-faq-service-inquiry/) 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure Content Delivery Network FAQs: Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN FAQ, CDN FAQS, origin traffic, ICP record number, CDN default cache rules, origin domain name, subscribe, CNAME, download acceleration, Web acceleration, website acceleration, live streaming acceleration, VOD acceleration, video on demand acceleration, CDN price, CDN fees, technical documentation, help files
+description: Find answers to common service consulting questions or inquiries related to Azure Content Delivery Network
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn_en
+ms.date: ''
+wacn.date: 2/23/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-faq-service-inquiry.md)
+> * [English](./cdn-enus-faq-service-inquiry.md) 
 #FAQs – Consulting
 
 + [Azure CDN price consulting](#step1)
@@ -30,7 +45,6 @@
 + [If I use Content Delivery Network acceleration with a blob, do I directly use the blob address, rather than the custom domain name? Does it need ICP number and why?](#step19)
 + [If there are multiple subscriptions, how do I switch between them?](#step20)
 
-
 ##**Price consulting**<a id="step1"></a>
 
 ### **Is all data transferred charged at a higher rate once the amount of data transferred each month exceeds 10 terabytes (TB)?**
@@ -43,7 +57,7 @@ No, this is not included. When Content Delivery Network receives a request for a
 
 ### **How are Content Delivery Network fees calculated?**
 
-Fees for Content Delivery Network are currently calculated on the basis of traffic. Charging by bandwidth is not supported at the moment. For more specific information on pricing, refer to [Pricing details](/pricing/details/cdn/).
+Fees for Content Delivery Network are currently calculated on the basis of traffic. Charging by bandwidth is not supported at the moment. For more specific information on pricing, refer to [Pricing details](https://www.azure.cn/pricing/details/cdn/).
 
 ## **The concept and role of Azure Content Delivery Network**<a id="step2"></a>
 
@@ -56,7 +70,7 @@ A CNAME (Canonical Name) record is a type of resource record in the Domain Name 
 ## **The relationship between Content Delivery Network traffic and return-to-source traffic**<a id="step4"></a>
 
 - Content Delivery Network traffic indicates cache hits.
-    
+
 - Return-to-source traffic indicates the missed portion.
 
 ## **How long is the domain name verification period?**<a id="step5"></a>
@@ -64,7 +78,7 @@ A CNAME (Canonical Name) record is a type of resource record in the Domain Name 
 The process of checking if the custom domain name and ICP number match and are valid takes no more than one business day to complete. If pass the Internet Content Provider (ICP) verification, the Content Delivery Network service will be registered within 60 minutes, so that it can be propagated by the network. At the same time, you also need to configure the CNAME mapping details, as indicated by the notifications in the interface, before the cache content can finally be accessed via the custom domain name.
 
 ## **Why do you need to have an ICP number to use the Content Delivery Network?**<a id="step6"></a>
- 
+
 The IP address parsed after you install Content Delivery Network is the IP address of the network edge node. If the Ministry of Industry and Information Technology (MIIT) discovers that a record has not been filed, it will directly block the IP address. To avoid causing you more trouble in the future, we recommend that you do not use acceleration services for domain names that have no ICP number on file or for which the ICP number has been canceled, until it can be tracked by the MIIT. In terms of the ICP filing requirements, the only requirement is that the custom Content Delivery Network acceleration domain name you use has an ICP. There are no requirements for the origin domain itself, and origin domains both inside and outside China are supported.
 
 ## **Do second-level domain names need to be filed?**<a id="step7"></a>
@@ -78,13 +92,13 @@ Yes, but we suggest that you accelerate the domain name following the redirect, 
 ##**Is there a limit on the number of accelerated domain names you can add to a single account?**<a id="step9"></a>
 
 Azure CDN has no limit on the number of accelerated domain names that can be added to each account.
-    
+
 ## **What types of acceleration does Azure CDN support?**<a id="step10"></a>
-  
+
 Currently, Azure CDN principally provides static acceleration, but also includes some dynamic acceleration technologies. Examples include returning to origin by using multiline nodes and Transmission Control Protocol (TCP) optimization. Active webpage acceleration techniques such as PHP, ASP.NET, and JSP are not supported, but more dynamic page acceleration methods will be gradually added in the future.
 
 Acceleration types supported by Azure CDN include web acceleration, Video on Demand (VoD) acceleration, live streaming media (direct broadcast) acceleration, and HTTPS acceleration.
-	
+
 ## **What are the specific differences between the web acceleration, VoD acceleration, live streaming media acceleration, and HTTPS acceleration in the Content Delivery Network acceleration type options?**<a id="step11"></a>
 
 Different Content Delivery Network acceleration types correspond to different usage scenarios:
@@ -121,7 +135,7 @@ The differences in terms of how these acceleration types work with the CDN back-
 - **The system’s default cache rules for live streaming media acceleration are:**
   1. TS files are cached for two minutes.
   2. M3U8 files are cached for two seconds. 
-	
+
 **Cache rule logic:**
 
    1. If the user configured no-cache rules, these rules will be applied as top priority. Then, configured cache rules will be applied from top to bottom.
@@ -139,7 +153,7 @@ If the custom domain name is a wildcard domain name, the refresh URL must specif
 ## **Can wildcard domain names be used with preloading?**<a id="step15"></a>
 
 Preloading requires a subdomain, which must be accessible (The HTTP status code is 200).
-	 
+
 ## **What is the difference between the “Origin Domain” and the “Origin Host Header”?**<a id="step16"></a>
 
 The Origin Domain indicates the actual, accessible origin address, which may be an IP address or a domain name. If it is a domain name, CDN will perform address parsing for the domain name when returning to source. It will then use the parsed IP address to access it.
@@ -151,8 +165,8 @@ The Origin Host Header indicates the host field value in the HTTP request header
 When you create CDN in the Azure CDN portal, enter the return-to-source access host header accepted by your origin in the “origin host header.” Once you have entered the custom domain, the system will automatically fill in a default value based on the origin domain type that you selected. To be more specific, if your source station is on Azure, the default value will be the corresponding source station address. If your source station is not on Azure, the default value will be the custom domain that you entered. You can also modify this based on the actual configuration of your source station.
 
 ## **What are the differences between the Standard and Premium version of CDN?**<a id="step18"></a>
-     
-First, the pricing is different. See [Pricing details](/pricing/details/cdn/) for specifics. Second, the current premium CDN service includes only HTTPS acceleration services, although other advanced acceleration services will gradually be added in the future. If you wish to use HTTPS acceleration services at this time, use the support page to contact the Azure support team to enable HTTPS acceleration services.
+
+First, the pricing is different. See [Pricing details](https://www.azure.cn/pricing/details/cdn/) for specifics. Second, the current premium CDN service includes only HTTPS acceleration services, although other advanced acceleration services will gradually be added in the future. If you wish to use HTTPS acceleration services at this time, use the support page to contact the Azure support team to enable HTTPS acceleration services.
 
 ## **If I use Content Delivery Network acceleration with a blob, do I directly use the blob address, rather than the custom domain name? Does it need ICP number and why?**<a id="step19"></a>
 
@@ -168,11 +182,9 @@ If the custom domain name and the origin domain name were the same, the results 
 The law stipulates that custom domain names are subject to ICP record filing, but there are no requirements for source stations. However, if the second-level domain name for the custom domain name itself has already been filed, it is not necessary to file another application.
 
 ## **If there are multiple subscriptions, how do I switch between them?**<a id="step20"></a>
-   
-If you have multiple subscriptions, as shown in the diagram, you can click the triangular drop-down list in the Subscription ID area at the top-right corner of the Azure CDN management portal to select a suitable subscription ID.
-    
-![FAQs](./media/cdn-doc/faq-inquiry-001.png)
-    
 
+If you have multiple subscriptions, as shown in the diagram, you can click the triangular drop-down list in the Subscription ID area at the top-right corner of the Azure CDN management portal to select a suitable subscription ID.
+
+![FAQs](./media/cdn-doc/faq-inquiry-001.png)
 
 <!---HONumber=CDN_1201_2015-->

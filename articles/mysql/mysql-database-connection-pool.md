@@ -1,11 +1,26 @@
-<properties linkid="" urlDisplayName="" pageTitle="如何高效连接到MySQL Database on Azure- Azure 微软云" metaKeywords="Azure 云，技术文档，文档与资源，MySQL,数据库，连接池，connection pool, Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="
-合理的利用连接池访问MySQL Database on Azure会优化性能。本文介绍如何使用连接池有效地访问MySQL Database on Azure，并给出以JAVA和PHP为例的示例代码供参考。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: 如何高效连接到MySQL Database on Azure- Azure 微软云
+metaKeywords: Azure 云，技术文档，文档与资源，MySQL,数据库，连接池，connection pool, Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="07/05/2016" wacn.date="07/05/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 07/05/2016
+wacn.date: 07/05/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-connection-pool/)
-- [English](/documentation/articles/mysql-database-enus-connection-pool/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-connection-pool.md)
+> * [English](./mysql-database-enus-connection-pool.md)
 
 # 如何高效连接到MySQL Database on Azure<sup style="color: #a5ce00; font-weight: bold; text-transform: uppercase; font-family: '微软雅黑'; font-size: 20px;" class="wa-previewTag"></sup>
 
@@ -17,7 +32,8 @@
 
 为了更好地说明，本文提供[以JAVA为例的一段示例代码](http://wacnstorage.blob.core.chinacloudapi.cn/marketing-resource/documents/MySQLConnectionPool.java )，供参考，您也可以参考[Apache common DBCP](http://commons.apache.org/proper/commons-dbcp/)来了解更多。
 
->[AZURE.NOTE]**服务器端会设置超时机制，如果一个连接在一段时间内处于闲置状态，服务器就会关闭这个链接，以释放不必要的资源占用。因此为了保障在您使用时，您的长链接的有效性，请设置验证机制，具体配置可参考[如何在客户端配置验证机制确认长连接有效性](/documentation/articles/mysql-database-validationquery/)**
+>[!NOTE]
+>**服务器端会设置超时机制，如果一个连接在一段时间内处于闲置状态，服务器就会关闭这个链接，以释放不必要的资源占用。因此为了保障在您使用时，您的长链接的有效性，请设置验证机制，具体配置可参考[如何在客户端配置验证机制确认长连接有效性](./mysql-database-validationquery.md)**
 
 ## 通过长连接访问数据库 （推荐）##
 PHP中建议您使用长连接，长连接的概念与连接池的概念类似。需要注意的是PHP目前有三种驱动，除Mysqli外，其他两种驱动均支持Persistent Connection. 
@@ -29,4 +45,3 @@ PHP中建议您使用长连接，长连接的概念与连接池的概念类似�
 
 ## 通过等待重试机制短连接访问数据库##
 基于资源的有效性，我们强烈推荐您使用连接池或是长连接访问数据库。但如果您使用短连接，在并发连接数接近上限，连接出现失败的情况下，我们建议您尝试多次连接，可以适当设定等待时间，初次等待时间可以较短，后可以进行多次的随机事件的等待。
-
