@@ -1,20 +1,34 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to create Download acceleration type CDN - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN加速, CDN服务, 云加速, 下载加速, Download, 缓存规则, ICP, ICP备案号, ICP编号, 技术文档, 帮助文档, 带宽, 大文件下载, 软件升级安装包, 游戏下载加速, 应用程序下载加速, 手机app更新, 系统固件升级" description="Learn How to create Download acceleration type CDN on Azure Management Portal and default caching rules for Download CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="7/72016"
-    wacn.date="7/7/2016"
-    wacn.lang="cn"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-how-to-create-Download-CDN-endpoint/)
-- [English](/documentation/articles/cdn-enus-how-to-create-Download-CDN-endpoint/) 
-#下载加速CDN节点创建
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: How to create Download acceleration type CDN - Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN加速, CDN服务, 云加速, 下载加速, Download, 缓存规则, ICP, ICP备案号, ICP编号, 技术文档, 帮助文档, 带宽, 大文件下载, 软件升级安装包, 游戏下载加速, 应用程序下载加速, 手机app更新, 系统固件升级
+description: Learn How to create Download acceleration type CDN on Azure Management Portal and default caching rules for Download CDN
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
+ms.service: cdn
+ms.date: 7/72016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-how-to-create-Download-CDN-endpoint.md)
+> * [English](./cdn-enus-how-to-create-Download-CDN-endpoint.md) 
+#下载加速CDN节点创建
 
 下载加速主要针对20MB以上的大文件下载，例如软件安装包、游戏客户端、应用程序、影音等大文件的下载分发。Azure CDN将文件缓存到CDN边缘节点，缓解源站下载的带宽压力，提高用户下载体验。
 
 下载加速适用于操作系统固件升级，游戏客户端，手机app更新，应用程序下载等用户场景。
 
-本文是针对下载类型加速域名创建，您也可以参考[使用Azure CDN](/documentation/articles/cdn-how-to-use/)了解基本的Azure CDN加速节点创建信息。
+本文是针对下载类型加速域名创建，您也可以参考[使用Azure CDN](./cdn-how-to-use.md)了解基本的Azure CDN加速节点创建信息。
 
 ###**下载加速默认缓存规则**
 Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也可以根据需求自定义设置缓存规则，具体请参考Azure CDN管理门户高级管理的帮助文档“域名管理”。如果源站内容更改或者更新，同时设置的缓存生存时间未到期，可以通过手动刷新CDN缓存文件实时同步源站更新的内容，具体请参考Azure CDN管理门户高级管理的帮助文档“缓存刷新”。
@@ -46,14 +60,13 @@ Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也�
     原始域类型是存储账户，对应的回源主机标头：
 
     ![007](./media/cdn-doc/007.png)  
-    
+
     原始域类型是自定义原始域对应的回源主机标头：
 
     ![013](./media/cdn-doc/013.png)
-    
-      
+
 8. 在“ICP编号”中输入和上一步中所输入的自定义域名相对应的ICP备案号（如：京ICP备XXXXXXXX号-X）。
-     
+
     ![009](./media/cdn-doc/009.png) 
 
 9. 单击“创建”按钮以创建新的终结点。
@@ -63,5 +76,4 @@ Azure CDN针对下载加速设置了默认缓存规则（见下文）。您也�
 
    ![010](./media/cdn-doc/010.png)
 
-> **注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Azure CDN](/documentation/articles/cdn-how-to-use/)中步骤2：创建新的CDN终结点的后半部分。
-
+> **注意** 为终结点创建的配置将不能立即可用，需要审核所提供的ICP自定义域名和ICP编号是否匹配，详情请参考[使用Azure CDN](./cdn-how-to-use.md)中步骤2：创建新的CDN终结点的后半部分。

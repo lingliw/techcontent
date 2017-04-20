@@ -1,19 +1,31 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure China CDN image processing" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN" description="Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="4/19/2017"
-    wacn.date="4/19/2017"
-    wacn.lang="cn"
-    />
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure China CDN image processing
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN
+description: Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn
+ms.date: 4/19/2017
+wacn.date: 4/19/2017
+
+---
 
 # Azure CDN 图片服务 RESTful API 文档
 
 ## 简介
 
-
 Azure CDN图片服务是由Azure CDN服务提供的一个可靠、安全且经济的图片处理服务。可以实现缩放、裁剪、旋转、锐化、模糊、管道、水印亮度对比、图片格式转换、获取图片信息等功能，灵活适配各种终端大小、不同页面的图片展示样式和水印防盗等需求。
 
 通过 Azure CDN 图片服务，用户可以利用 Azure CDN 服务，在任何时间、从任何位置和设备获取处理过的图片版本。
-
 
 ## 服务说明
 
@@ -21,20 +33,15 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 目前Azure CDN图片服务没有提供相应的图形化管理界面，相应的CDN加速节点创建好之后，所有的图片处理请求目前都是通过RESTful API的形式来提供访问。直接引用CDN加速域名加上控制图片尺寸、裁剪模式以及质量等图片处理参数，即可访问经过处理的图片版本。
 
-
-
 ## 限制
 
 1. 支持格式转换的文件格式包括 jpg, png, bmp, webp, gif
 2. 图片源文件的大小不可大于 20MB
 3. 处理后的图片尺寸不得大于 4096 * 4096 像素, 且任意边边长不得大于 4096*4 像素
 
-
 ## 服务创建流程
 
-
 “图片处理”加速类型的 CDN 节点仅限于在 [Azure 门户预览](https://portal.azure.cn/)中创建
-
 
 ### 1. 创建 CDN Profile
 
@@ -58,7 +65,7 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 #### 3.1 创建 Azure Storage 账户并选择 Azure Storage 账户作为源站
 
-创建 Azure Storage 账户请参见 [创建存储账户](/documentation/articles/storage-create-storage-account/)
+创建 Azure Storage 账户请参见 [创建存储账户](../storage/storage-create-storage-account.md)
 
 也可以不创建新的 Azure Storage 账户，使用一个现有的。
 
@@ -70,7 +77,7 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 - [通过 Azure 门户预览](https://portal.azure.cn)
 
-- [通过 Azure Storage API](/documentation/articles/storage-dotnet-how-to-use-blobs/)
+- [通过 Azure Storage API](../storage/storage-dotnet-how-to-use-blobs.md)
 
 - [Azure Storage Explorer](http://storageexplorer.com/)
 
@@ -80,7 +87,6 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 2. 如果经过 CDN 加速的原始图片访问链接 （以上图中所使用的自定义域名为例） ` http://imgprocess.yourcompany.cn/container_name/img_name.jpg ` 可以被访问的话，可以确认所有配置生效。
 
-
 图片处理
 --
 
@@ -88,9 +94,9 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 通过如下 URL 进行访问：
 
-
-    http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串>
-
+```
+http://your_CDN_custom_domain/container_name/image_object?basic=<处理字符串>
+```
 
 **your\_CDN\_custom\_domain**: 用户用来创建图片处理加速类型 CDN 节点的自定义域名，如：`imgprocess.yourcompany.cn`
 
@@ -100,9 +106,7 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 具体的`处理字符串`的解释如下。
 
-
 ## 图片处理语法
-
 
 ### 处理字符串的详细定义
 
@@ -110,9 +114,7 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 
 若需要进行格式转换则 `Process String` 必须以`.{目标格式扩展名}`结尾
 
-
 ### 支持的基本图片操作（参数）
-
 
 | 操作名 | 语法 | 备注 |
 |:----------|:-------------------------------------------------------------|:-------------------------------------|
@@ -134,7 +136,6 @@ Azure CDN 图片服务是作为 Azure CDN 服务的一个增值功能引入的�
 | 图片主色调 | <p>`imageAve`, 返回 JSON 格式图片主色调信息，详情请参阅下方对应小节</p> | 不得与其他参数共用 |
 | 管道 | <p>`{Process1}`&#124;`{Process2}`, 其中 `Process1` 与 `Process2` 均为`处理字符串`并且图片会先被按照 `Process1` 定义的操作流程进行处理，而后按照 `Process2` 所定义的操作流程进行处理</p>| <p>`Process` 可以为`图片信息``EXIF 信息`及`图片主色调`以外的任何上述参数</p> |
 | 水印 | 请参阅下方对应小节 | 不得与其他参数共同存在于管道的同一阶段中 |
-
 
 ### 缩放和裁剪
 
@@ -174,8 +175,6 @@ __注意__
 
 **注意** 此处`长边`与`短边`的概念基于`原始长度 / 目标长度`的**比值**决定.
 
-
-
 ### 图片信息响应体
 
 包含至少以下字段的 JSON 对象:
@@ -189,15 +188,15 @@ __注意__
 
 响应体示例
 
-
-    {
-        "Width": 221,
-        "Height": 284,
-        "Size": 119540,
-        "AveColor": null,
-        "MimeType": "Jpeg"
-    }
-
+```
+{
+    "Width": 221,
+    "Height": 284,
+    "Size": 119540,
+    "AveColor": null,
+    "MimeType": "Jpeg"
+}
+```
 
 ### 图片主色调响应体
 
@@ -211,10 +210,11 @@ __注意__
 
 json
 
-    {
-        "RGB": "273B2A"
-    }
-
+```
+{
+    "RGB": "273B2A"
+}
+```
 
 ### 示例 （持续更新中）
 
@@ -224,80 +224,81 @@ json
 
 #### 1. 将原始图片缩小到原来的 60%：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p
+```
 
 ![][4]
 
 #### 2. 将原始图片进行圆角矩形处理（圆角半径为 20）：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=20-2ci
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=20-2ci
+```
 
 ![][5]
 
 #### 3. 将原始图片先缩小到原来的 60%，然后再进行圆角处理（圆角半径为 20）：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci 
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci 
+```
 
 ![][6]
 
-
 #### 4. 获取图片信息：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=info
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=info
+```
 
 json
 
-    {
-        "Width": 800,
-        "Height": 400,
-        "Size": 87341,
-        "AveColor": null,
-        "MimeType": "Jpeg"
-    }
-
+```
+{
+    "Width": 800,
+    "Height": 400,
+    "Size": 87341,
+    "AveColor": null,
+    "MimeType": "Jpeg"
+}
+```
 
 #### 5. 获取图片的 EXIF 信息：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=exif
+```
 
 json
 
-    {
-        "Orientation": 1,
-        "XResolution": 72.0,
-        "YResolution": 72.0,
-        "ResolutionUnit": 2,
-        "Software": "Adobe Photoshop CS5 Windows",
-        "DateTime": "2014:04:15 16:43:14",
-        "ColorSpace": 1,
-        "PixelXDimension": 800,
-        "PixelYDimension": 400
-    }
-
+```
+{
+    "Orientation": 1,
+    "XResolution": 72.0,
+    "YResolution": 72.0,
+    "ResolutionUnit": 2,
+    "Software": "Adobe Photoshop CS5 Windows",
+    "DateTime": "2014:04:15 16:43:14",
+    "ColorSpace": 1,
+    "PixelXDimension": 800,
+    "PixelYDimension": 400
+}
+```
 
 #### 6. 获取图片主色调：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=imageAve
+```
 
 json
 
-    {
-        "RGB": "0296C8"
-    }
-
-
+```
+{
+    "RGB": "0296C8"
+}
+```
 
 ### 水印操作
 
@@ -369,8 +370,6 @@ json
 | huawenzhongsong | 华文中宋 | aHVhd2Vuemhvbmdzb25n |
 | youyuan | 幼圆 | eW91eXVhbg== |
 
-
-
 #### 示例
 
 假设水印图片文件存在用 `container_name/watermark.jpg`，其对应的 Base64 编码为 `Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==`
@@ -379,28 +378,27 @@ json
 
 #### 1. 将原始图片加入水印图片：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
+```
 
 ![][7]
 
 #### 2. 将原始图片先缩小到原来的 60%，然后再进行圆角处理（圆角半径为 20），最后加入图片水印（注意此处使用管道**|**操作符）：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=1;p=3;s=50;object=Y29udGFpbmVyX25hbWUvd2F0ZXJtYXJrLmpwZw==
+```
 
 ![][8]
 
 #### 3. 将原始图片先缩小到原来的 60%，然后再进行圆角处理（圆角半径为 20），最后加入文字水印（注意此处使用管道**|**操作符），文字内容为 “Azure China CDN”，字体为“微软雅黑”：
 
-
-    http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=2;p=3;s=50;text=QXp1cmUgQ2hpbmEgQ0RO;type=bWljcm9zb2Z0eWFoZWk=
-
+```
+http://imgprocess.yourcompany.cn/container_name/img_name.jpg?basic=60p_20-2ci|watermark=2;p=3;s=50;text=QXp1cmUgQ2hpbmEgQ0RO;type=bWljcm9zb2Z0eWFoZWk=
+```
 
 ![][10]
-
 
 <!--Image references-->
 [1]: ./media/cdn-image-processing/imgp01.png

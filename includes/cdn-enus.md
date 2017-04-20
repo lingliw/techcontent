@@ -1,6 +1,6 @@
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-overview/)
-- [English](/documentation/articles/cdn-overview/) 
+> [!div class="op_single_selector"]
+> * [中文](../articles/cdn/cdn-overview.md)
+> * [English](../articles/cdn/cdn-overview.md) 
 # Use Azure Content Delivery Network
 
 Azure Content Delivery Network caches static content in storage blobs, cloud services, and websites on the Azure platform by using large numbers of physical nodes that are distributed across mainland China to provide developers with a solution for delivering high-bandwidth content. This network also currently supports the use of origins that are not deployed on the Azure platform.
@@ -24,16 +24,16 @@ Existing Azure customers in China can now use CDN in the [Azure CDN portal](http
 You can create CDN endpoints for storage accounts, cloud services, websites, or media services in existing Azure subscriptions. You can also create new storage accounts, cloud services, or websites for use in Azure subscriptions by using the following method:
 
 ### Create a storage account for Azure subscriptions
-Refer to [How to create storage accounts](/documentation/articles/storage-create-storage-account/)
+Refer to [How to create storage accounts](../articles/storage/storage-create-storage-account.md)
 
 ### Create a cloud service for Azure subscriptions
-Refer to [How to create and deploy cloud services](/documentation/articles/cloud-services-how-to-create-deploy/)
+Refer to [How to create and deploy cloud services](../articles/cloud-services/cloud-services-how-to-create-deploy.md)
 
 ### Create a website for Azure subscriptions
 Refer to [How to create and deploy websites](/documentation/articles/web-sites-create-deploy/)
 
 ### Create a media service for Azure subscriptions
-Refer to [How to create and deploy media services](/documentation/articles/media-services-create-account/)
+Refer to [How to create and deploy media services](../articles/media-services/media-services-create-account.md)
 
 ## Step 2: Create a new Content Delivery Network endpoint<a id="step2"></a>
 Once a storage account, cloud services or websites is enabled, all publicly available objects are entitled to access the network edge high-speed caching. If you edit an object that is currently cached in CDN endpoint, the new content will be accessible only after the time to live (TTL) expires and the object’s content is updated (or manually refresh them using the advanced management features).
@@ -76,7 +76,6 @@ If you don’t want to continue to cache objects on Content Delivery Network, yo
 - You can change the cloud service to a request that no longer responds to this object.
 
 Objects already cached in Content Delivery Network will remain in a cached state until the TTL for the object expires. Once the TTL expires, the network will check whether the endpoint is still valid and whether anonymous access to the object is still possible. If the object cannot be accessed, it will no longer be cached.
-
 
 ## Step 5: Use advanced management features<a id="step5"></a>
 Once you have created a new Content Delivery Network endpoint, you can use the Azure portal to check the basic configuration details and perform other basic operations, such as disable/enable and delete network endpoints. You can also click the Management button to jump to another management page, where you can use the advanced management functions:

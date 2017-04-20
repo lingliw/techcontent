@@ -1,12 +1,27 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure CDN FAQs – Azure Feature Guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, cannot cache, cannot CNAME, origin rate high, cache refresh failed, CDN FAQ, CDN FAQS, CDN use failed, CDN service failure, CDN configuration error, speed slow, cannot open website, login exception, CNAME, CDN technical documentation, CDN help files" description="Find answers to common service consulting questions or inquiries related to the Azure CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn_en"
-    ms.date="7/7/2016"
-    wacn.date="7/7/2016"
-    wacn.lang="en"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-faq-service-issues/)
-- [English](/documentation/articles/cdn-enus-faq-service-issues/) 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure CDN FAQs – Azure Feature Guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, cannot cache, cannot CNAME, origin rate high, cache refresh failed, CDN FAQ, CDN FAQS, CDN use failed, CDN service failure, CDN configuration error, speed slow, cannot open website, login exception, CNAME, CDN technical documentation, CDN help files
+description: Find answers to common service consulting questions or inquiries related to the Azure CDN
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn_en
+ms.date: 7/7/2016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-faq-service-issues.md)
+> * [English](./cdn-enus-faq-service-issues.md) 
 
 # FAQs - Service Issues
 
@@ -20,7 +35,7 @@
 + [There are issues with logging in to the website since I started using the CDN](#step8)
 + [Cache refresh failure](#step9)
 + [Why is CDN traffic used up when I haven’t Cnamed to the Azure CDN?](#step10)
- 
+
 ## **Why can’t cache my origin URL?**<a id="step1"></a>
 
 The inability to cache a URL is usually due to one of the following reasons:
@@ -32,7 +47,7 @@ The inability to cache a URL is usually due to one of the following reasons:
    - The value of Max-age is very small; Max-age sets the length of the caching time in seconds, so if the value is too small, for example less than two digits, it will expire very quickly and make it impossible to cache.
 
 2. The cache rules are not configured or are configured with errors such that the URL cannot hit any caching rules; for example, if the user accidentally enters the rule “[Any Character] (.gif|.jpg|.bmp) (.gif|.jpg|.bmp)”, then it will be impossible to hit the rule even for images, because the file extension is duplicated.
-   
+
 3. No users have so far accessed the URL, as some nodes will only cache the content after it has been accessed.
 
 ## **Why are custom domain resolved to origin?**<a id="step2"></a>
@@ -52,37 +67,37 @@ In general, return to origin traffic is less than or equal to CDN traffic, but i
 The cache hit rate is low. The cache hit rate can be affected by several factors:
 
 - Cache configuration issues.
-     
+
 - The HTTP header causes inability to cache.
-     
+
 - The CDN custom domain has just been added, so the number of cached files is still small.
-     
+
 - The type of the origin has limited contents that can be cached.
-     
+
 - Website visit numbers are low and the expiration time is short, so the number of cached files is small.
 - 
 ## **The return to origin rate is relatively high**<a id="step6"></a>
 
 1. Cache rule configuration issues
-    
+
 2. The amount of resources that can be cached is small
-    
+
 3. The cache time is short
 
 ## **Websites will not open since I started using the CDN**<a id="step7"></a> 
 
 Possible reasons:
- 
+
 1. Origin site issue.
-     
+
 2. The origin has a firewall that is preventing the CDN nodes from accessing origin.
-    
+
 3. The nodes are blocking the client IP.
-     
+
 4. If you have added a new domain or the domain name status has changed, you may need to wait for a while for them to take effect across all CDN edge nodes to, typically around 60 minutes.
-     
+
 5. CDN edge nodes failures
-    
+
 ## **There are issues with logging in to the website since I started using the CDN**<a id="step8"></a>
 
 It is highly likely that resources that shouldn’t be cached have been set up in the cache rules, in which case, you need to set the user back-end login folder to not cache (e.g. /user or /admin); if it is a website with no login or user session, then please enable Allow ignore cookie in Configure Caching Rules on Azure CDN management portal.

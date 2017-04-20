@@ -1,6 +1,6 @@
 > [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-overview/)
-- [English](/documentation/articles/cdn-overview/) 
+- [中文](../articles/cdn/cdn-overview.md)
+- [English](../articles/cdn/cdn-overview.md) 
 # 使用 Azure CDN
 
 Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站使用。
@@ -18,22 +18,22 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 - 远离内容源并使用需要进行多次“互联网旅行”才能加载内容的应用程序的最终用户可获得更好的性能和用户体验
 - 大型分布式规模可更好地处理瞬时高负载（例如在像产品发布这样的活动开始时）
 
-现有 Azure 中国客户现在可使用[Azure 管理门户](https://manage.windowsazure.cn/)中的 Azure CDN。 如需开通HTTPS加速类型，请参考[Azure CDN HTTPS 加速服务](https://www.azure.cn/documentation/articles/cdn-https-how-to/)。
+现有 Azure 中国客户现在可使用[Azure 管理门户](https://manage.windowsazure.cn/)中的 Azure CDN。 如需开通HTTPS加速类型，请参考[Azure CDN HTTPS 加速服务](../articles/cdn/cdn-https-how-to.md)。
 
 ## 步骤 1:创建存储帐户，云服务， Web 应用或媒体服务<a id="step1"></a>
 您可以为现有的Azure订阅中的存储账户，云服务， Web 应用或媒体服务创建CDN终结点。您也可以按以下过程创建新的存储帐户，云服务或者 Web 应用用于 Azure 订阅。
 
 ### 为 Azure 订阅创建存储帐户
-请参阅 [如何创建存储帐户](/documentation/articles/storage-create-storage-account/)
+请参阅 [如何创建存储帐户](../articles/storage/storage-create-storage-account.md)
 
 ### 为 Azure 订阅创建云服务
-请参阅 [如何创建和部署云服务](/documentation/articles/cloud-services-how-to-create-deploy/) 
+请参阅 [如何创建和部署云服务](../articles/cloud-services/cloud-services-how-to-create-deploy.md) 
 
 ### 为 Azure 订阅创建 Web 应用
 请参阅 [如何创建和部署 Web 应用](/documentation/articles/web-sites-create-deploy/) 
 
 ### 为 Azure 订阅创建媒体服务
-请参阅 [如何创建和部署媒体服务](/documentation/articles/media-services-create-account/) 
+请参阅 [如何创建和部署媒体服务](../articles/media-services/media-services-create-account.md) 
 
 ## 步骤 2:创建新的 CDN 终结点<a id="step2"></a>
 一旦启用对存储帐户，云服务或者 Web 应用的 CDN 访问，所有公开可用的对象将有资格获得 CDN 边缘高速缓存。如果您修改一个当前在 CDN 中缓存的对象，则只有 CDN 在缓存内容生存时间到期时刷新了对象的内容后（或通过高级管理功能进行手动刷新），才能通过 CDN 访问新内容。
@@ -74,7 +74,6 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 - 您可将云服务修改为不再响应此对象的请求。
 
 已在 CDN 中缓存的对象将保持缓存状态，直到该对象的生存时间到期为止。当生存时间到期时，CDN 将查看 CDN 终结点是否仍有效，且是否仍可对该对象进行匿名访问。如果不能访问，则不再对该对象进行缓存。
-
 
 ## 步骤 5:使用高级管理功能<a id="step5"></a>
 当您创建好CDN终结点之后，除了可以在管理门户中查看基本的配置信息和对CDN终结点做“禁用/启用”和“删除”等基本操作外，您还可以通过点击“管理”按钮，跳转到另外的管理页面进行高级管理功能：

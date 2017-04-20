@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="定制MySQL 数据库 on Azure服务器参数 - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,参数,定制,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="MySQL 数据库 on Azure支持您根据需求定制化服务器部分参数,帮您了解不同参数的设置范围和区间。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: 定制MySQL 数据库 on Azure服务器参数 - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,参数,定制,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: MySQL 数据库 on Azure支持您根据需求定制化服务器部分参数,帮您了解不同参数的设置范围和区间。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="07/05/2016" wacn.date="07/05/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 07/05/2016
+wacn.date: 07/05/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-advanced-settings/)
-- [English](/documentation/articles/mysql-database-enus-advanced-settings/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-advanced-settings.md)
+> * [English](./mysql-database-enus-advanced-settings.md)
 
 #定制MySQL 数据库 on Azure服务器参数
 
@@ -19,7 +36,7 @@ MySQL 数据库 on Azure支持您对服务器部分参数进行自定义设置�
     </td>
   <th align="left"><strong>范围</strong>
     </td>
-  
+
   <tr>
     <td>Event_scheduler</td>
     <td>OFF</td>
@@ -85,7 +102,7 @@ MySQL 数据库 on Azure支持您对服务器部分参数进行自定义设置�
     | PAD_CHAR_TO_FULL_LENGTH | PIPES_AS_CONCAT
     | REAL_AS_FLOAT | STRICT_ALL_TABLES
     | STRICT_TRANS_TABLES
-    
+
 <a href="http://dev.mysql.com/doc/refman/5.5/en/sql-mode.html">http://dev.mysql.com/doc/refman/5.5/en/sql-mode.html</a></td>
   </tr>
   <tr>
@@ -104,6 +121,8 @@ MySQL 数据库 on Azure支持您对服务器部分参数进行自定义设置�
     <td>utf8|utf16|utf32|utf8mb4|ujis|ucs2|tis620|swe7|sjis|macroman|macce|latin1|latin2|latin5|latin7|koi8r|koi8u|keybcs2|hp8|hebrew|greek|geostd8|gbk|gb2312|euckr|eucjpms|dec8|cp850|cp852|cp866|cp932|cp1250|cp1251|cp1256|cp1257|binary|big5|ascii|armscii8</td>
   </tr>
 </table>
->[AZURE.NOTE] **考虑到流量管理器的限制，我们将wait_timeout的默认值调整为120s，可选范围为60-240s，但上述调整只对10月后创建的实例生效。对于以前的实例，请您手动将wait_timeout值设置为60-240s之间的任意数值，推荐120s。**
+>[!NOTE]
+> **考虑到流量管理器的限制，我们将wait_timeout的默认值调整为120s，可选范围为60-240s，但上述调整只对10月后创建的实例生效。对于以前的实例，请您手动将wait_timeout值设置为60-240s之间的任意数值，推荐120s。**
 
->[AZURE.NOTE] **关于时区的配置，可详细参考[MySQL on Azure上的时区配置](/documentation/articles/mysql-database-timezone-config/).**
+>[!NOTE]
+> **关于时区的配置，可详细参考[MySQL on Azure上的时区配置](./mysql-database-timezone-config.md).**

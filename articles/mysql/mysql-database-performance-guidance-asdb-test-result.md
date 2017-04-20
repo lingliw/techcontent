@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="了解服务层和版本 - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,性能,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,ASDB基准" description="针对服务层和不同版本的性能介绍,为您选择MySQL 数据库 on Azure提供了详细的参考。我们按照ASDB基准,提供了不同版本的测试数据供您参考。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: 了解服务层和版本 - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,性能,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,ASDB基准
+description: 针对服务层和不同版本的性能介绍,为您选择MySQL 数据库 on Azure提供了详细的参考。我们按照ASDB基准,提供了不同版本的测试数据供您参考。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="07/05/2016" wacn.date="07/05/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 07/05/2016
+wacn.date: 07/05/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-performance-guidance-asdb-test-result/)
-- [English](/documentation/articles/mysql-database-enus-performance-guidance-asdb-test-result/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-performance-guidance-asdb-test-result.md)
+> * [English](./mysql-database-enus-performance-guidance-asdb-test-result.md)
 
 #了解服务层和版本
 
@@ -73,4 +90,5 @@ ASDB基准的基本特性包括：
   </tr>
 </table>
 
->[AZURE.NOTE]必须知道，与所有基准一样，ASDB 只提供代表性和指导性的结果。使用基准应用程序实现的事务率与使用其他应用程序实现的事务率将会不同。该基准包括不同事务类型的集合，这些事务类型是针对包含一系列表和数据类型的架构运行的。尽管该基准会执行所有 OLTP 工作负载共有的相同基本操作，但它不代表任何特定类别的数据库或应用程序。该基准的目标是针对上调或下调性能级别时预期的数据库相对性能提供合理的指导。事实上，数据库具有不同的大小和复杂性，会遇到不同的工作负载混合形式，并且会以不同的方式做出响应。例如，IO 密集型应用程序可能很快就会达到 IO 阈值，而内存密集型应用程序可能很快就会达到内存限制。在负载增加的情况下，不保证任何特定的数据库会像ASDB基准结果中所示的那样表现。
+>[!NOTE]
+>必须知道，与所有基准一样，ASDB 只提供代表性和指导性的结果。使用基准应用程序实现的事务率与使用其他应用程序实现的事务率将会不同。该基准包括不同事务类型的集合，这些事务类型是针对包含一系列表和数据类型的架构运行的。尽管该基准会执行所有 OLTP 工作负载共有的相同基本操作，但它不代表任何特定类别的数据库或应用程序。该基准的目标是针对上调或下调性能级别时预期的数据库相对性能提供合理的指导。事实上，数据库具有不同的大小和复杂性，会遇到不同的工作负载混合形式，并且会以不同的方式做出响应。例如，IO 密集型应用程序可能很快就会达到 IO 阈值，而内存密集型应用程序可能很快就会达到内存限制。在负载增加的情况下，不保证任何特定的数据库会像ASDB基准结果中所示的那样表现。

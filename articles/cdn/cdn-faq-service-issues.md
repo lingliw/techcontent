@@ -1,14 +1,28 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure CDN FAQ - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 不能缓存, 不能CNAME, 回源比例大, 缓存刷新失败, CDN FAQ, CDN常见问题, CDN使用故障, CDN服务故障, CDN配置错误, 速度慢, 网站打不开, 登录异常, CNAME, CDN技术文档, CDN帮助文档" description="Find answers to common service consulting or inquiries related to Azure CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="7/7/2016"
-    wacn.date="7/7/2016"
-    wacn.lang="cn"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-faq-service-issues/)
-- [English](/documentation/articles/cdn-enus-faq-service-issues/) 
-#常见问题 - 使用故障
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure CDN FAQ - Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 不能缓存, 不能CNAME, 回源比例大, 缓存刷新失败, CDN FAQ, CDN常见问题, CDN使用故障, CDN服务故障, CDN配置错误, 速度慢, 网站打不开, 登录异常, CNAME, CDN技术文档, CDN帮助文档
+description: Find answers to common service consulting or inquiries related to Azure CDN
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
+ms.service: cdn
+ms.date: 7/7/2016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-faq-service-issues.md)
+> * [English](./cdn-enus-faq-service-issues.md) 
+#常见问题 - 使用故障
 
 + [出现CDN加速域名不能访问时需要提供哪些信息协助调查](#step10)
 + [为什么我的URL不能缓存？](#step1)
@@ -27,13 +41,13 @@
 1. 出问题时访问到的CDN节点IP
    - 组合件Win键+R，输入cmd，点击“确定”后，弹出cmd.exe。
    - 输入nslookup 域名，获取Addresss对应的IP地址。比如加速域名是www.cdntest.com，请在cmd.exe中输入nslookup www.cdntest.com，然后按回车键。
-   
+
      ![][1]
 2. 提供可复制文本的问题URL，有时候出现的URL太长，排查人员需要可复制的URL 减少排查时间。类似：http://www.eaxmple.com/aaabbbb.jpg
 3. 提供终端出口IP。
 
      ![][2]
-   
+
 4. 问题截图，比如打不开，转圈，5XX 等等可以截图可视化的信息
 5. 发生问题的大概时间点
 
@@ -48,7 +62,7 @@ URL不能被缓存，通常有以下几个原因： 
    - Max-age的值很小，Max-age指定了缓存时间长度，单位为秒，如果太小，如小于两位数，那么很快就会过期，导致无法缓存。
 
 2. 缓存规则里没有配置或配置错误，URL无法命中任何一个缓冲规则，例如，有用户不小心录入以下规则:"\[任意字符\]\(.gif|.jpg|.bmp\) (\.gif|.jpg|.bmp\)"，那么即使是图片类型也无法命中规则，因为扩展名重复。
-   
+
 3. 部分节点暂时还没有用户访问该URL，需要有访问之后才会缓存
 
 ## **为什么域名会解析到源站？**<a id="step2"></a>
@@ -66,23 +80,23 @@ URL不能被缓存，通常有以下几个原因： 
 ## **回源比例比较大**<a id="step5"></a>
 
 1. 缓存规则配置问题
-    
+
 2. 可缓存资源少
-    
+
 3. 缓存时间短    
 
 ## **使用CDN后，网站打不开**<a id="step6"></a> 
 
 可能因素：
- 
+
 1. 源站故障
-     
+
 2. 源站有设置防火墙，屏蔽CDN节点
-    
+
 3. 节点屏蔽客户IP
-     
+
 4. 新添加域名/域名状态变更，节点配置下发问题，需要等一段时间一般60分钟左右
-     
+
 5. 设备故障  
     
 ## **使用CDN后，网站登录异常**<a id="step7"></a>

@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="MySQL服务问题 - Azure 微软云" metaKeywords="Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,主从复制,只读实例,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ" description="本文介绍了MySQL PasS主从复制和只读实例的实现方法。" metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: MySQL服务问题 - Azure 微软云
+metaKeywords: Azure 云,技术文档,文档与资源,MySQL,数据库,常见问题,主从复制,只读实例,Azure MySQL, MySQL PaaS,Azure MySQL PaaS, Azure MySQL Service, Azure RDS,FAQ
+description: 本文介绍了MySQL PasS主从复制和只读实例的实现方法。
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql" ms.date="09/23/2016" wacn.date="09/23/2016" wacn.lang="cn" />
+ms.service: mysql
+ms.date: 09/23/2016
+wacn.date: 09/23/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-read-replica/)
-- [English](/documentation/articles/mysql-database-enus-read-replica/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-read-replica.md)
+> * [English](./mysql-database-enus-read-replica.md)
 
 #MySQL主从复制和只读实例
 
@@ -16,7 +33,7 @@ MySQL Database on Azure支持用户使用复制功能为MySQL实例创建从属�
 
 >注意事项：
 >
->1. MySQL Database on Azure只支持为MySQL5.6及以上版本的主实例创建从属实例，不支持MySQL5.5。数据库升级问题请参见[常见问题与故障排除](https://www.azure.cn/documentation/articles/mysql-database-serviceinquiry/)。
+>1. MySQL Database on Azure只支持为MySQL5.6及以上版本的主实例创建从属实例，不支持MySQL5.5。数据库升级问题请参见[常见问题与故障排除](./mysql-database-serviceinquiry.md)。
 >
 >2. 从属实例和主实例的MySQL版本必须一致。MySQL Database on Azure不支持不同MySQL版本间的复制。
 >
@@ -35,7 +52,6 @@ MySQL Database on Azure支持用户使用复制功能为MySQL实例创建从属�
 >
 >由于在创建从属实例的过程中，MySQL Database on Azure会对主实例做备份，请确保此时主实例上没有需要长时间运行的查询或改动，从而避免备份失败。
 
-
 ##监控从属实例复制状态
 
 从属实例创建成功后，用户可以通过多种方法监控主实例和从属实例间的复制。选择主实例，点击“复制”页。该页面显示了它的所有从属实例及它们的状态。
@@ -50,48 +66,50 @@ MySQL Database on Azure支持用户使用复制功能为MySQL实例创建从属�
 
 下面是应用端读写分离的Java样例程序：
 
-	package test1;
-	
-	import java.sql.Connection;
-	import java.sql.ResultSet;
-	import java.sql.Statement;
-	import java.util.Properties;
-	
-	import com.mysql.jdbc.Driver;
-	import com.mysql.jdbc.ReplicationDriver;;
-	
-	public class ConnectionDemo {
-	
-	  public static void main(String[] args) throws Exception {
-		
-	    ReplicationDriver driver = new ReplicationDriver();
-	    String url = "jdbc:mysql:replication://address=(protocol=tcp)(type=master)(host=masterhost)(port=3306)(user=masteruser),address=(protocol=tcp)(type=slave)(host=slavehost)(port=3306)(user=slaveuser)/yourdb";
-	    Properties props = new Properties();    
-	    props.put("password", "yourpassword");
-	    try (Connection conn = driver.connect(url, props))
-	    {
-	    	// Perform read/write work on the master
-	        conn.setReadOnly(false);
-	        conn.setAutoCommit(false);
-	        conn.createStatement().executeUpdate("update t1 set id = id+1;");
-	        conn.commit();    
-	
-	        // Set up connection to slave;
-	        conn.setReadOnly(true);
-	        
-	        // Now, do a query from a slave
-	        try (Statement statement = conn.createStatement())
-	    	{
-	    		ResultSet res = statement.executeQuery("show tables");
-	    		System.out.println("There are below tables:");
-	    		while (res.next()) {
-	    			String tblName = res.getString(1);
-	    			System.out.println(tblName);
-	    		}
-	    	} 
-	    }
-	  }
-	}
+```
+package test1;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Properties;
+
+import com.mysql.jdbc.Driver;
+import com.mysql.jdbc.ReplicationDriver;;
+
+public class ConnectionDemo {
+
+  public static void main(String[] args) throws Exception {
+
+    ReplicationDriver driver = new ReplicationDriver();
+    String url = "jdbc:mysql:replication://address=(protocol=tcp)(type=master)(host=masterhost)(port=3306)(user=masteruser),address=(protocol=tcp)(type=slave)(host=slavehost)(port=3306)(user=slaveuser)/yourdb";
+    Properties props = new Properties();    
+    props.put("password", "yourpassword");
+    try (Connection conn = driver.connect(url, props))
+    {
+        // Perform read/write work on the master
+        conn.setReadOnly(false);
+        conn.setAutoCommit(false);
+        conn.createStatement().executeUpdate("update t1 set id = id+1;");
+        conn.commit();    
+
+        // Set up connection to slave;
+        conn.setReadOnly(true);
+
+        // Now, do a query from a slave
+        try (Statement statement = conn.createStatement())
+        {
+            ResultSet res = statement.executeQuery("show tables");
+            System.out.println("There are below tables:");
+            while (res.next()) {
+                String tblName = res.getString(1);
+                System.out.println(tblName);
+            }
+        } 
+    }
+  }
+}
+```
 
 下面是应用端读写分离的PHP样例程序：
 
@@ -103,95 +121,97 @@ MySQL Database on Azure支持用户使用复制功能为MySQL实例创建从属�
 
 - 创建 PECL/mysqlnd_ms插件配置文件如下所示：
 
-		File mysqlnd_ms_plugin.ini:
-		{
-	    	"myapp": {
-	       		"master": {
-	            	"master_0": {
-		                "host": "<your master host>",
-		                "port": "<your master port>",
-		                "user": "<your master username>",
-		                "password": "<your master password>"
-	            		}
-	        	},
-	        	"slave": {
-	            	"slave_0": {
-		                "host": "<your slave host>",
-		                "port": "<your slave port>",
-		                "user": "<your slave username>",
-		                "password": "<your slave password>"
-	            	}
-	        	}
-	    }
-
-
+    ```
+    File mysqlnd_ms_plugin.ini:
+    {
+        "myapp": {
+               "master": {
+                "master_0": {
+                    "host": "<your master host>",
+                    "port": "<your master port>",
+                    "user": "<your master username>",
+                    "password": "<your master password>"
+                    }
+            },
+            "slave": {
+                "slave_0": {
+                    "host": "<your slave host>",
+                    "port": "<your slave port>",
+                    "user": "<your slave username>",
+                    "password": "<your slave password>"
+                }
+            }
+    }
+    ```
 
 - PHP样例程序：
 
-		<?php
-		function is_select($query)
-		{
-		  switch (mysqlnd_ms_query_is_select($query))
-		  {
-		    case MYSQLND_MS_QUERY_USE_MASTER:
-		      printf("'%s' should be run on the master.<br>\n", $query);
-		      break;
-		    case MYSQLND_MS_QUERY_USE_SLAVE:
-		      printf("'%s' should be run on a slave.<br>\n", $query);
-		      break;
-		    case MYSQLND_MS_QUERY_USE_LAST_USED:
-		      printf("'%s' should be run on the server that has run the previous query.<br>\n", $query);
-		      break;
-		    default:
-		      printf("No suggestion where to run the '%s', fallback to master recommended.<br>\n", $query);
-		      break;
-		  }
-		}
-		
-		if (!($mysqli = new mysqli("myapp", "<your username>", "<your password>", "<your db>")) || mysqli_connect_errno())
-		{
-		  die(sprintf("Failed to connect: [%d] %s\n", mysqli_connect_errno(), mysqli_connect_error()));
-		}
-		$query = "INSERT INTO user(name, num) VALUES ('test', 1)";
-		is_select($query);
-		
-		if (!($res = $mysqli->query($query)))
-		{
-		  printf("Failed to insert: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
-		}
-		
-		$query = "SELECT * FROM user";
-		is_select($query);
-		if (!($res = $mysqli->query($query)))
-		{
-		  printf("Failed to query: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
-		}
-		else
-		{
-		  for ($i=0; $row = $res->fetch_assoc(); $i++)
-		  {
-		    $value[$i] = $row;
-		  }
-		  print_r($value);
-		  printf("<br>\n");
-		  $res->close();
-		}
-		
-		$query = "/*" . MYSQLND_MS_LAST_USED_SWITCH . "*/SELECT * FROM user limit 1";
-		is_select($query);
-		if (!($res = $mysqli->query($query)))
-		{
-		  printf("Failed to query: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
-		}
-		else
-		{
-		  $value = $res->fetch_assoc();
-		  print_r($value);
-		  printf("<br>\n");
-		  $res->close();
-		}
-		$mysqli->close();
-		?>
+    ```
+    <?php
+    function is_select($query)
+    {
+      switch (mysqlnd_ms_query_is_select($query))
+      {
+        case MYSQLND_MS_QUERY_USE_MASTER:
+          printf("'%s' should be run on the master.<br>\n", $query);
+          break;
+        case MYSQLND_MS_QUERY_USE_SLAVE:
+          printf("'%s' should be run on a slave.<br>\n", $query);
+          break;
+        case MYSQLND_MS_QUERY_USE_LAST_USED:
+          printf("'%s' should be run on the server that has run the previous query.<br>\n", $query);
+          break;
+        default:
+          printf("No suggestion where to run the '%s', fallback to master recommended.<br>\n", $query);
+          break;
+      }
+    }
+
+    if (!($mysqli = new mysqli("myapp", "<your username>", "<your password>", "<your db>")) || mysqli_connect_errno())
+    {
+      die(sprintf("Failed to connect: [%d] %s\n", mysqli_connect_errno(), mysqli_connect_error()));
+    }
+    $query = "INSERT INTO user(name, num) VALUES ('test', 1)";
+    is_select($query);
+
+    if (!($res = $mysqli->query($query)))
+    {
+      printf("Failed to insert: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
+    }
+
+    $query = "SELECT * FROM user";
+    is_select($query);
+    if (!($res = $mysqli->query($query)))
+    {
+      printf("Failed to query: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
+    }
+    else
+    {
+      for ($i=0; $row = $res->fetch_assoc(); $i++)
+      {
+        $value[$i] = $row;
+      }
+      print_r($value);
+      printf("<br>\n");
+      $res->close();
+    }
+
+    $query = "/*" . MYSQLND_MS_LAST_USED_SWITCH . "*/SELECT * FROM user limit 1";
+    is_select($query);
+    if (!($res = $mysqli->query($query)))
+    {
+      printf("Failed to query: [%d] %s<br>\n", $mysqli->errno, $mysqli->error);
+    }
+    else
+    {
+      $value = $res->fetch_assoc();
+      print_r($value);
+      printf("<br>\n");
+      $res->close();
+    }
+    $mysqli->close();
+    ?>
+    ```
 
 ##提升从属实例
 

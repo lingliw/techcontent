@@ -1,19 +1,32 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="How to useAzure CDN Management Portal advanced features - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN" description="Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="7/7/2016"
-    wacn.date="7/7/2016"
-    wacn.lang="cn"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-management-portal-how-to-use/)
-- [English](/documentation/articles/cdn-enus-management-portal-how-to-use/) 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: How to useAzure CDN Management Portal advanced features - Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN
+description: Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn
+ms.date: 7/7/2016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-management-portal-how-to-use.md)
+> * [English](./cdn-enus-management-portal-how-to-use.md) 
 # Azure CDN 管理门户使用指南
-
-
 
 Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点上缓存Azure平台上的Storage Blob，Cloud Service和WebSites的静态内容，为开发人员提供一个传送高带宽内容的解决方案。目前本CDN服务也同时支持没有部署在Azure平台上的源站。
 
-有关 Azure CDN 的详细信息和价格，请参阅 [Azure CDN服务介绍](/home/features/cdn/)。
+有关 Azure CDN 的详细信息和价格，请参阅 [Azure CDN服务介绍](https://www.azure.cn/home/features/cdn/)。
 
 + [概览](#step1)
 + [域名管理](#step2)
@@ -46,7 +59,6 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 
 当前Azure订阅下当月每天的流量信息，单位是MB。 如果您需要了更详细的流量信息，可以在左侧的导航窗格中单击 “流量报表”，进入流量统计报表页面。
 
-
 ### **当月带宽**
 当月每天的峰值带宽信息，单位是Kb/s。 如果您需要了解更详细的带宽信息，可以在左侧的导航窗格中单击 “带宽报表”，进入带宽统计报表页面。
 
@@ -74,11 +86,10 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 >只有状态为**开启**的域名才可以正常使用CDN服务。
 
 #### **缓存规则配置视图**
- 
+
 ![][4]
 
 如上图，系统会根据缓存规则设置默认规则。用户可以根据需求加以调整。用户规则优先匹配，如果用户规则未命中，则逐条执行系统默认缓存规则。
-
 
 #### **缓存规则配置**
 
@@ -86,15 +97,15 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 
 - 根据目录进行配置
 
-	目录必须以 "/" 开头，比如： "/pic", "/doc", "/htdoc/data" 等等。后台会匹配指定目录下的所有文件，**包括子目录**。
+    目录必须以 "/" 开头，比如： "/pic", "/doc", "/htdoc/data" 等等。后台会匹配指定目录下的所有文件，**包括子目录**。
 
 - 根据文件后缀配置
 
-	常用文件后缀名，比如："jpg", "png", "gif", "txt", "m4v", "mp3" 等等。后台会匹配 **所有文件夹下** 指定的文件后缀。
+    常用文件后缀名，比如："jpg", "png", "gif", "txt", "m4v", "mp3" 等等。后台会匹配 **所有文件夹下** 指定的文件后缀。
 
 - 根据全路径配置
 
-	用来指定 **一个文件**，必须以 "/" 开头。比如："/sites/doc/example.doc"。**注意**：如果用户填的全路径是"/"，则它匹配首页。
+    用来指定 **一个文件**，必须以 "/" 开头。比如："/sites/doc/example.doc"。**注意**：如果用户填的全路径是"/"，则它匹配首页。
 
 >**注意**
 >用户填写配置规则时，字符串中不要包含 “{”, “}”, “(”, “)”, “[”, “]”, “.”, “?", “*”, “\”, “^”, “$” 等特殊字符。
@@ -225,7 +236,6 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 -   状态 （常见状态：成功，失败，进行中）
 -   提交时间
 
-
 如果预缓存规则提交成功，状态栏会显示成功字样。如果失败的话，需要检查的预缓存规则是否正确。如果有问题，需要重新创建并提交预缓存规则。
 
 ### **预缓存规则提交**
@@ -302,8 +312,6 @@ Azure 内容传送网络 (CDN) 通过遍布在中国大陆的众多物理节点�
 
 >**注意**
 >服务检查功能不能保证该域名所处的所有CDN边缘服务器都没有异常。
-
- 
 
 [1]: ./media/cdn-unified-portal/001.png
 [2]: ./media/cdn-unified-portal/002.png

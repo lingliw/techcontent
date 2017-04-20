@@ -1,10 +1,27 @@
-<properties linkid="" urlDisplayName="" pageTitle="Understanding Service Layers and Versions – Azure Cloud" metakeywords="Azure Cloud, technical documentation, documents and resources, MySQL, database, performance, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS, ASDB benchmark" description="Explains service tiers and the performance of different versions, and provides you with a detailed reference for choosing MySQL Database on Azure. Based on the Azure SQL Database Benchmark, we have provided test data for different versions for your reference." metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: Understanding Service Layers and Versions – Azure Cloud
+metakeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, performance, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS, ASDB benchmark
+description: Explains service tiers and the performance of different versions, and provides you with a detailed reference for choosing MySQL Database on Azure. Based on the Azure SQL Database Benchmark, we have provided test data for different versions for your reference.
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql_en" ms.date="07/05/2016" wacn.date="07/05/2016" wacn.lang="en" />
+ms.service: mysql_en
+ms.date: 07/05/2016
+wacn.date: 07/05/2016
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-performance-guidance-asdb-test-result/)
-- [English](/documentation/articles/mysql-database-enus-performance-guidance-asdb-test-result/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-performance-guidance-asdb-test-result.md)
+> * [English](./mysql-database-enus-performance-guidance-asdb-test-result.md)
 
 #Understanding Service Tiers and Versions
 
@@ -73,6 +90,7 @@ The table below shows the level of stable performance that can be maintained by 
   </tr>
 </table>
 
->[AZURE.NOTE]It is important to be aware that, like all benchmarks, Azure SQL Database Benchmark can provide only representative and indicative results. The transaction rates achieved by using the benchmark application will differ from those achieved by using other applications. The benchmark includes a collection of different transaction type. These transaction types are run to target a schema that includes a range of table and data types. While the benchmark performs common basic operations that are shared by all OLTP workloads, it does not represent any specific type of database or application. The goal of this benchmark is to provide a reasonable reference for a database’s expected relative performance when increasing or decreasing performance levels. In reality, databases vary in terms of size and complexity, encounter different workload mixes, and respond in different ways. For example, an I/O-intensive application might reach the I/O threshold very quickly, while a memory-intensive application might rapidly reach the memory limit. There is no guarantee that any specific database will perform as indicated by the Azure SQL Database Benchmark under increased load conditions.**
+>[!NOTE]
+>It is important to be aware that, like all benchmarks, Azure SQL Database Benchmark can provide only representative and indicative results. The transaction rates achieved by using the benchmark application will differ from those achieved by using other applications. The benchmark includes a collection of different transaction type. These transaction types are run to target a schema that includes a range of table and data types. While the benchmark performs common basic operations that are shared by all OLTP workloads, it does not represent any specific type of database or application. The goal of this benchmark is to provide a reasonable reference for a database’s expected relative performance when increasing or decreasing performance levels. In reality, databases vary in terms of size and complexity, encounter different workload mixes, and respond in different ways. For example, an I/O-intensive application might reach the I/O threshold very quickly, while a memory-intensive application might rapidly reach the memory limit. There is no guarantee that any specific database will perform as indicated by the Azure SQL Database Benchmark under increased load conditions.**
 
 <!--HONumber=81-->

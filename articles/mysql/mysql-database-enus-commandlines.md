@@ -1,16 +1,31 @@
-<properties linkid="" urlDisplayName="" pageTitle="Use Windows PowerShell to manage MySQL Database on Azure – Azure cloud" metaKeywords="Azure Cloud, technical documentation, documents and resources, MySQL, database, beginner’s guide, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS" description="This article explains how to use Windows PowerShell to do more with MySQL Database on Azure, including create, view, delete, and modify operations." metaCanonical="" services="MySQL" documentationCenter="Services" title="" authors="sofia" solutions="" manager="" editor="" />
+---
+linkid: ''
+urlDisplayName: ''
+title: Use Windows PowerShell to manage MySQL Database on Azure – Azure cloud
+metaKeywords: Azure Cloud, technical documentation, documents and resources, MySQL, database, beginner’s guide, Azure MySQL, MySQL PaaS, Azure MySQL PaaS, Azure MySQL Service, Azure RDS
+description: This article explains how to use Windows PowerShell to do more with MySQL Database on Azure, including create, view, delete, and modify operations.
+metaCanonical: ''
+services: MySQL
+documentationCenter: Services
+title: ''
+authors: sofia
+solutions: ''
+manager: ''
+editor: ''
 
-<tags ms.service="mysql_en" ms.date="03/24/2017" wacn.date="03/24/2017" wacn.lang="en" />
+ms.service: mysql_en
+ms.date: 03/24/2017
+wacn.date: 03/24/2017
 
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/mysql-database-commandlines/)
-- [English](/documentation/articles/mysql-database-enus-commandlines/)
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./mysql-database-commandlines.md)
+> * [English](./mysql-database-enus-commandlines.md)
 
 #Use Windows PowerShell to manage MySQL Database on Azure
 
-Use PowerShell to do more with MySQL Database on Azure, including creating, viewing, deleting, and modifying operations. For helpful background information, first read [Using Azure Resource Manager and PowerShell to deploy and use MySQL Database on Azure](/documentation/articles/mysql-database-etoe-powershell/). This document explains how to download and use Azure PowerShell, and how to use PowerShell to quickly create MySQL Database on Azure data services.
-
-
+Use PowerShell to do more with MySQL Database on Azure, including creating, viewing, deleting, and modifying operations. For helpful background information, first read [Using Azure Resource Manager and PowerShell to deploy and use MySQL Database on Azure](./mysql-database-etoe-powershell.md). This document explains how to download and use Azure PowerShell, and how to use PowerShell to quickly create MySQL Database on Azure data services.
 
 ### Contents
 - [Understanding Azure Resource Manager templates and resource groups](#gettoknow)
@@ -85,7 +100,8 @@ Edit and run the following commands to view all the current server lists.
 ```
 Get-AzureRmResource -ResourceType "Microsoft.MySql/servers"  -ApiVersion 2015-01-01 -ResourceGroupName resourcegroupchinaeast
 ```
->[AZURE.NOTE] **This command checks that the “-ApiVersion 2015-01-01” in the server is directed at the Azure Resource Manager API. In all other commands, this is “-ApiVersion 2015-09-01” and is directed at the MySQL API.**
+>[!NOTE]
+> **This command checks that the “-ApiVersion 2015-01-01” in the server is directed at the Azure Resource Manager API. In all other commands, this is “-ApiVersion 2015-09-01” and is directed at the MySQL API.**
 
 ### 3\.2 View database lists and parameters
 Edit and run the following commands to view all database lists for a specific server in the current resource group.
@@ -176,7 +192,7 @@ Set-AzureRmResource -ResourceType "Microsoft.MySql/servers" -ResourceName testPS
 Refer to the definitions in the following JSON file for modifications to other parameters. See [Customize MySQL Database on Azure server parameters](http://www.windowsazure.cn/documentation/articles/mysql-database-advanced-settings/) for valid ranges for the parameters:
 
 ```
-	"options": {
+    "options": {
           "type": "object",
           "properties": {
             "div_precision_increment": {
@@ -229,7 +245,7 @@ Refer to the definitions in the following JSON file for modifications to other p
 ```
 Set-AzureRmResource -ResourceType "Microsoft.MySql/servers " -ResourceName testPSH -ApiVersion 2015-09-01 -ResourceGroupName resourcegroupChinaEast -SkuObject @{name="MS4"} -UsePatchSemantics
 ```
-	
+
 ## <a id="delete"></a>5. Remove operations
 Use the **Remove** command to delete MySQL servers, databases, users, backups, and firewall rules.
 ### 5\.1 Delete servers
@@ -266,7 +282,5 @@ Edit and run the following commands to delete a specific backup file.
 ```
 Remove-AzureRmResource -ResourceType "Microsoft.MySql/servers/backups" -ResourceName testPSH/back1 -ApiVersion 2015-09-01 -ResourceGroupName resourcegroupChinaEast 
 ```
-
-
 
 <!---HONumber=Acom_0218_2016_MySql-->

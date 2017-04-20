@@ -1,14 +1,28 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure CDN FAQ - Azure feature guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN FAQ, CDN常见问题, 回源流量, ICP备案号, CDN默认缓存规则, 回源域名, 订阅, CNAME, 下载加速, Web加速, 网站加速, 流媒体直播加速, VOD加速, 视频点播加速, CDN价格, CDN收费, 技术文档, 帮助文档" description="Find answers to common service consulting or inquiries related to Azure CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="7/7/2016"
-    wacn.date="7/7/2016"
-    wacn.lang="cn"
-    />
-> [AZURE.LANGUAGE]
-- [中文](/documentation/articles/cdn-faq-service-inquiry/)
-- [English](/documentation/articles/cdn-enus-faq-service-inquiry/) 
-#常见问题 - 咨询
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure CDN FAQ - Azure feature guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, CDN FAQ, CDN常见问题, 回源流量, ICP备案号, CDN默认缓存规则, 回源域名, 订阅, CNAME, 下载加速, Web加速, 网站加速, 流媒体直播加速, VOD加速, 视频点播加速, CDN价格, CDN收费, 技术文档, 帮助文档
+description: Find answers to common service consulting or inquiries related to Azure CDN
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
 
+ms.service: cdn
+ms.date: 7/7/2016
+wacn.date: 7/7/2016
+
+---
+
+> [!div class="op_single_selector"]
+> * [中文](./cdn-faq-service-inquiry.md)
+> * [English](./cdn-enus-faq-service-inquiry.md) 
+#常见问题 - 咨询
 
 + [CDN的概念和作用](#step2)
 + [什么是CNAME](#step3)
@@ -46,7 +60,7 @@ CNAME(Canonical Name record)，通常是别名指向。例如，假设用户自�
 ## **CDN流量和回源流量关系**<a id="step4"></a>
 
 - CDN流量表示缓存命中
-    
+
 - 回原流量表示MISS部分 
 
 ## **影响缓存命中率的因素有哪些？**<a id="step5"></a>
@@ -68,7 +82,7 @@ CNAME(Canonical Name record)，通常是别名指向。例如，假设用户自�
 审核所提供的自定义域名和ICP编号是否匹配、有效，这个过程需要最多一个工作日的时间来完成。如果ICP审核通过，CDN服务最多需要 60 分钟时间进行注册以便通过 CDN 网络传播。与此同时，您还需要按照界面上的提示信息配置CNAME映射信息，这样才可以最终通过自定义域名访问CDN缓存内容。
 
 ## **开通CDN一定要有备案号吗？**<a id="step7"></a>
- 
+
 工信部要求使用CDN一定要有备案号。对于具体的ICP备案要求，仅要求所使用的自定义CDN加速域名有ICP，对源站本身没有要求，同时支持源站在国内和国外。
 
 ## **二级域名需要备案吗？**<a id="step8"></a>
@@ -82,13 +96,13 @@ CNAME(Canonical Name record)，通常是别名指向。例如，假设用户自�
 ## **如果域名有跳转是否可以使用CDN？**<a id="step9"></a>
 
 可以，不过建议给跳转后的域名加速，跳转前的域名加速没有必要。
-   
+
 ## **Azure CDN支持哪些类型的加速？**<a id="step11"></a>
-  
+
 Azure CDN支持的加速类型包括：Web加速，下载加速，VOD加速，流媒体直播加速和HTTPS加速。
 
 现阶段提供的CDN主要是静态加速，包含一部分动态加速技术。比如：通过多线路节点回源，TCP优化等。不支持对PHP，ASP.NET，JSP等动态网页的加速，后续会逐步增加更多对动态页面的加速。
-	
+
 ## **CDN加速类型中的“WEB加速”、“下载加速”、“VOD加速”、“流媒体直播加速”、“HTTPS加速”具体有什么区别？**<a id="step12"></a>
 
 不同的CDN加速类型对应于不同的使用场景：
@@ -125,7 +139,7 @@ Azure CDN支持的加速类型包括：Web加速，下载加速，VOD加速，�
 - **流媒体直播加速类型，系统默认的缓存规则：**
   1. 对ts文件缓存2分钟
   2. 对m3u8 文件缓存2秒钟 
-	
+
 **缓存规则逻辑：**
 
    1. 如果用户配置了不缓存的规则，优先匹配；然后匹配需要缓存的规则；缓存规则自上而下匹配。
@@ -155,13 +169,12 @@ CDN不会去主动缓存文件，有用户请求那么节点才会去缓存，�
 ## **预加载可以使用泛域名吗？**<a id="step16"></a>
 
 预加载必须是子域名，并且是能够正常访问的URL（状态码是200的）。
-	 
+
 ## **“源站地址（回源地址）”和“回源域名（回源host header）”的区别是什么？**<a id="step17"></a>	 
 
 回源地址表示源站实际可以被访问到的地址，可以是IP也可以是域名。如果是域名，CDN在回源是会对该域名进行地址解析，然后用解析出来的IP再进行访问。
 
 回源域名表示CDN回源时，HTTP请求头（request header）中的Host字段值。这个字段值一般是域名形式的字符串，被源站用来识别是否与源站服务器上配置的域名相同。
-
 
 ## **Blob使用CDN加速，是否直接使用blob地址，而不使用自定义域名，是否还需要备案，为什么？**<a id="step20"></a>
 CDN（内容分发网络）说白了就是一组网络内容缓存节点，和客户的源站不是等价的。缓存节点上，只包含用户设置需要缓存的内容，且有可能会过期。
@@ -180,15 +193,15 @@ CDN（内容分发网络）说白了就是一组网络内容缓存节点，和�
 Azure CDN支持HTTP标头的gzip功能，需要客户提交工单开通该功能。提交工单时请提供加速域名，源站域名，以及需要加速的文件类型。
 
 ## **如果有多个订阅，如何在不同的订阅间切换？**<a id="step21"></a>
-   
+
 如果您有多个订阅，如图所示，可以点击管理门户网站右上角订阅ID处的下拉三角，选择恰当的订阅ID。
-    
+
 ![FAQ](./media/cdn-doc/FAQ.png)
 
 ## **Azure账号过期，如何将CDN迁到另一个Azure账号？**<a id="step22"></a>
 
 目前在订阅号之间的域名自动迁移还不支持。客户需要手工迁移。先从过期的订阅删除已有域名，然后在新的订阅中重新创建，并且会对域名重新进行审核。
-    
+
 ##**一个账户内是否对本账户添加的加速域名个数有限制？**<a id="step10"></a>
 
 Azure CDN对每个账户的加速域名个数没有做限制。
