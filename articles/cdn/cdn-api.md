@@ -1,10 +1,24 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure China CDN API doc" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-on, Live Streaming, 流媒体加速, CDN加速,CDN服务,主流CDN, 流媒体直播加速, 媒体服务, Azure Media Service, 缓存规则, HLS, CDN技术文档, CDN帮助文档, 视频直播加速, 直播加速" description="Learn How to create Live Streaming acceleration type CDN on Azure Management Portal and default caching rules for Live Streaming CDN" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="4/20/2017"
-    wacn.date="4/20/2017"
-    wacn.lang="cn"
-    />
- 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure China CDN API doc
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-on, Live Streaming, 流媒体加速, CDN加速,CDN服务,主流CDN, 流媒体直播加速, 媒体服务, Azure Media Service, 缓存规则, HLS, CDN技术文档, CDN帮助文档, 视频直播加速, 直播加速
+description: Learn How to create Live Streaming acceleration type CDN on Azure Management Portal and default caching rules for Live Streaming CDN
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn
+ms.date: 4/20/2017
+wacn.date: 4/20/2017
+
+---
+
 # Restful API
 
 ##简述
@@ -16,7 +30,7 @@
 - 内容管理- 缓存刷新、预加载
 ##密钥申请
 
-验证和授权方式基于接口密钥，密钥申请需要到[Azure CDN新版管理门户](https://www.azure.cn/documentation/articles/cdn-management-v2-portal-how-to-use/)申请。
+验证和授权方式基于接口密钥，密钥申请需要到[Azure CDN新版管理门户](./cdn-management-v2-portal-how-to-use.md)申请。
 
 ##查看API文档
 

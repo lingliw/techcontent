@@ -1,10 +1,24 @@
-<properties linkid="dev-net-common-tasks-cdn" urlDisplayName="CDN" pageTitle="Azure CDN Management Portal new version guide" metaKeywords="Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN" description="Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint" metaCanonical="" services="" documentationCenter=".NET" title="" authors="" solutions="" manager="" editor="" />
-<tags ms.service="cdn"
-    ms.date="4/20/2017"
-    wacn.date="4/20/2017"
-    wacn.lang="cn"
-    />
- 
+---
+linkid: dev-net-common-tasks-cdn
+urlDisplayName: CDN
+title: Azure CDN Management Portal new version guide
+metaKeywords: Azure CDN, Azure CDN, Azure blobs, Azure caching, Azure add-ons, 缓存刷新, 内容预取, 日志下载, 缓存规则, CDN 助文档, CDN技术文档, CDN
+description: Learn how to use advanced features of Azure CDN management portal to manage CDN endpoint
+metaCanonical: ''
+services: ''
+documentationCenter: .NET
+title: ''
+authors: ''
+solutions: ''
+manager: ''
+editor: ''
+
+ms.service: cdn
+ms.date: 4/20/2017
+wacn.date: 4/20/2017
+
+---
+
 # Azure CDN新版管理门户使用指南
 
 Azure China CDN对管理门户进行设计改版，功能模块归类，并添加了很多新的管理功能。目前从[Azure门户预览](https://portal.azure.cn/)点击“管理”按钮会跳转到老版管理门户，用户可以在概览界面点击“访问新站点”跳转到新版管理门户。
@@ -42,7 +56,6 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 
 当前Azure订阅下当月每天的流量信息。 如果您需要了更详细的流量信息，可以在左侧的导航窗格中单击 “流量报表”，进入流量统计报表页面。
 
-
 **当月带宽**
 当月每天的峰值带宽信息，单位是Kb/s。 如果您需要了解更详细的带宽信息，可以在左侧的导航窗格中单击 “带宽报表”，进入带宽统计报表页面。
 
@@ -78,17 +91,15 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 >**注意**
 >Host Header表示 CDN 回源时，HTTP 请求头中的 HOST 字段的值。这个值一般是域名形式的字符串，被源站用来识别是否与源站服务器上配置的域名相同。
  **缓存规则配置视图**
- 
+
 ![][4]
 
 选中域名行后，右边会出现可以对改域名进行的操作的视图。系统会根据缓存规则设置默认规则。用户可以根据需求加以调整。用户规则优先匹配，如果用户规则未命中，则逐条执行系统默认缓存规则。
-
 
 >**注意**
 
 >- 不缓存规则优先执行
 >- 缓存规则由上至下执行
-
 
 ### **缓存规则配置**
 
@@ -96,15 +107,15 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 
 - 根据目录进行配置
 
-	目录必须以 "/" 开头，比如： "/pic", "/doc", "/htdoc/data" 等等。后台会匹配指定目录下的所有文件，**包括子目录**。
+    目录必须以 "/" 开头，比如： "/pic", "/doc", "/htdoc/data" 等等。后台会匹配指定目录下的所有文件，**包括子目录**。
 
 - 根据文件后缀配置
 
-	常用文件后缀名，比如："jpg", "png", "gif", "txt", "m4v", "mp3" 等等。后台会匹配 **所有文件夹下** 指定的文件后缀。
+    常用文件后缀名，比如："jpg", "png", "gif", "txt", "m4v", "mp3" 等等。后台会匹配 **所有文件夹下** 指定的文件后缀。
 
 - 根据全路径配置
 
-	用来指定 **一个文件**，必须以 "/" 开头。比如："/sites/doc/example.doc"。
+    用来指定 **一个文件**，必须以 "/" 开头。比如："/sites/doc/example.doc"。
 
 >**注意**
 
@@ -219,7 +230,6 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 ### **预加载**
 预加载是指预先将指定URL的内容从源站缓存到CDN节点，这样可以消除用户第一次访问该资源时的等待时间。预加载一般被用在进行大文件分发时的场景，可以有效的提升用户访问体验。
 
-
 **预加载列表视图**
 
 在预加载视图右边的“查询历史数据”视图中，选择要查询的域名、时间范围、状态，单击**刷新**后界面将显示符合条件的预加载记录。
@@ -230,7 +240,6 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 -   自定义域名，用于访问CDN缓存内容的URL
 -   状态 （常见状态：成功，失败，进行中）
 -   提交时间
-
 
 如果预缓存规则提交成功，状态栏会显示成功字样。如果失败的话，需要检查的预缓存规则是否正确。如果有问题，需要重新创建并提交预缓存规则。
 
@@ -340,7 +349,7 @@ Azure China CDN对管理门户进行设计改版，功能模块归类，并添�
 
 -   名称，密钥的用户友好名称
 -   只读或读写权限
-  
+
 [1]: ./media/cdn-new-portal/001.png
 [2]: ./media/cdn-new-portal/002.png
 [3]: ./media/cdn-new-portal/003.png
