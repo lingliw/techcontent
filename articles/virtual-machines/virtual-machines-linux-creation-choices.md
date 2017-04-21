@@ -37,7 +37,7 @@
   
     * 以下示例使用 [az group create](https://docs.microsoft.com/cli/azure/group#create) 创建名为 `myResourceGroup` 的资源组：
 
-          az group create --name myResourceGroup --location chinanorth
+            az group create --name myResourceGroup --location chinanorth
 
     * 以下示例使用 [az vm create](https://docs.microsoft.com/cli/azure/vm#create)、最新 Debian 映像、Azure 非托管磁盘以及名为 `id_rsa.pub` 的公钥创建名为 `myVM` 的 VM：
 
@@ -55,7 +55,7 @@
   
     * 以下示例使用 [az group deployment create](https://docs.microsoft.com/cli/azure/group/deployment#create) 通过存储在 GitHub 上的模板创建 VM：
 
-          az group deployment create --resource-group myResourceGroup \ 
+            az group deployment create --resource-group myResourceGroup \ 
             --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-sshkey/azuredeploy.json \
             --parameters @myparameters.json
 
@@ -64,11 +64,6 @@
     * 包括在可用性集中创建负载均衡器和多个 VM。
 
 * [将磁盘添加到 Linux VM](/documentation/articles/virtual-machines-linux-add-disk/)
-  
-    * 以下示例使用 [az vm disk attach-new](https://docs.microsoft.com/cli/azure/vm/disk#attach-new) 向名为 `myVM` 的现有 VM 添加 5Gb 名为 `myDataDisk.vhd` 的非托管磁盘：
-
-          az vm disk attach-new --resource-group myResourceGroup --vm-name myVM \
-            --disk-size 5 --vhd https://mystorageaccount.blob.core.chinacloudapi.cn/vhds/myDataDisk.vhd
 
 ## Azure 门户预览
 在 [Azure 门户预览](https://portal.azure.cn)中可以快速创建 VM，因为不需要在系统上安装任何组件。使用 Azure 门户预览创建 VM：
@@ -108,7 +103,6 @@
 | CoreOS |CoreOS |CoreOS |Stable |最新 |
 | Debian |credativ |Debian |8 |最新 |
 | openSUSE |SUSE |openSUSE |13\.2 |最新 |
-| RHEL |Redhat |RHEL |7\.2 |最新 |
 | SLES |SLES |SLES |12-SP1 |最新 |
 | UbuntuLTS |Canonical |UbuntuServer |14\.04.3-LTS |最新 |
 
