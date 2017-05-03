@@ -75,7 +75,7 @@ Azure 应用程序网关需要自己的子网。在创建虚拟网络时，请�
 
 >[注意] 还可以使用不带设备登录名开关的 `az login`，以要求在 aka.ms/deviceloginchina 中输入代码。
 
-键入前述示例后，将提供代码。在浏览器中导航到 https://aka.ms/devicelogin，继续登录过程。
+键入前述示例后，将提供代码。在浏览器中导航到 https://aka.ms/deviceloginchina，继续登录过程。
 
 ![显示设备登录信息的 cmd][1]  
 

@@ -161,10 +161,7 @@
 [Cordova]: /documentation/articles/app-service-mobile-cordova-get-started-users/
 
 [AAD]: /documentation/articles/app-service-mobile-how-to-configure-active-directory-authentication/
-[Facebook]: /documentation/articles/app-service-mobile-how-to-configure-facebook-authentication/
-[Google]: /documentation/articles/app-service-mobile-how-to-configure-google-authentication/
 [MSA]: /documentation/articles/app-service-mobile-how-to-configure-microsoft-authentication/
-[Twitter]: /documentation/articles/app-service-mobile-how-to-configure-twitter-authentication/
 
 [custom-auth]: /documentation/articles/app-service-mobile-dotnet-backend-how-to-use-server-sdk/#custom-auth
 

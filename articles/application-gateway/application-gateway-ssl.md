@@ -50,6 +50,8 @@
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
+<br/>
+
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
 	Name       HTTP Status Code     Operation ID                             Error
@@ -63,6 +65,8 @@
 此示例在第一行显示 cmdlet，接着显示输出。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
+
+<br/>
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed
@@ -86,6 +90,8 @@
 
 	PS C:\> Add-AzureApplicationGatewaySslCertificate  -Name AppGwTest -CertificateName GWCert -Password <password> -CertificateFile <full path to pfx file>
 
+<br/>
+
 	VERBOSE: 5:05:23 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:06:29 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
 	Name       HTTP Status Code     Operation ID                             Error
@@ -97,6 +103,8 @@
 此示例在第一行显示 cmdlet，接着显示输出。
 
 	PS C:\> Get-AzureApplicationGatewaySslCertificate AppGwTest
+
+<br/>
 
 	VERBOSE: 5:07:54 PM - Begin Operation: Get-AzureApplicationGatewaySslCertificate
 	VERBOSE: 5:07:55 PM - Completed Operation: Get-AzureApplicationGatewaySslCertificate
@@ -186,6 +194,8 @@
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
+<br/>
+
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 	Name       HTTP Status Code     Operation ID                             Error
@@ -202,6 +212,8 @@
 
 	PS C:\> Start-AzureApplicationGateway AppGwTest
 
+<br/>
+
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
 	Name       HTTP Status Code     Operation ID                             Error
@@ -216,6 +228,8 @@
 此示例演示了一个正常运行并已准备好接收流量的应用程序网关。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
+
+<br/>
 
 	Name          : AppGwTest2
 	Description   :

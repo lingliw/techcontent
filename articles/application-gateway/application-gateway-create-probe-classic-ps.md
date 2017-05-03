@@ -139,7 +139,7 @@
 
 >[AZURE.IMPORTANT] 协议项 Http 或 Https 区分大小写。
 
-已添加用于配置自定义探测的新配置项 <Probe>。
+已添加用于配置自定义探测的新配置项 \<Probe\>。
 
 配置参数为：
 
@@ -150,7 +150,7 @@
 * **Timeout** - 定义 HTTP 响应检查的探测超时。
 * **UnhealthyThreshold** - 将后端实例标记为*不正常* 所需的失败 HTTP 响应数目。
 
-在 <BackendHttpSettings> 配置中引用探测名称，分配使用自定义探测设置的后端池。
+在 \<BackendHttpSettings\> 配置中引用探测名称，分配使用自定义探测设置的后端池。
 
 ## 将自定义探测配置添加到现有应用程序网关
 

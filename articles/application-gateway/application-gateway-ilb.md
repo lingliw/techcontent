@@ -47,6 +47,8 @@
 
 	PS C:\> New-AzureApplicationGateway -Name AppGwTest -VnetName testvnet1 -Subnets @("Subnet-1")
 
+<br/>
+
 	VERBOSE: 4:31:35 PM - Begin Operation: New-AzureApplicationGateway 
 	VERBOSE: 4:32:37 PM - Completed Operation: New-AzureApplicationGateway
 	Name       HTTP Status Code     Operation ID                             Error 
@@ -58,6 +60,8 @@
 在此示例中，*Description*、*InstanceCount* 和 *GatewaySize* 是可选参数。*InstanceCount* 的默认值为 2，最大值为 10。*GatewaySize* 的默认值为 Medium。其他可用值为 Small 和 Large。*Vip* 和 *DnsName* 显示为空白，因为网关尚未启动。这些值将在网关进入运行状态后立即创建。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest
+
+<br/>
 
 	VERBOSE: 4:39:39 PM - Begin Operation:
 	Get-AzureApplicationGateway VERBOSE: 4:39:40 PM - Completed 
@@ -163,6 +167,8 @@
 
 	PS C:\> Set-AzureApplicationGatewayConfig -Name AppGwTest -ConfigFile D:\config.xml
 
+<br/>
+
 	VERBOSE: 7:54:59 PM - Begin Operation: Set-AzureApplicationGatewayConfig 
 	VERBOSE: 7:55:32 PM - Completed Operation: Set-AzureApplicationGatewayConfig
 	Name       HTTP Status Code     Operation ID                             Error 
@@ -178,6 +184,8 @@
    
 	PS C:\> Start-AzureApplicationGateway AppGwTest 
 
+<br/>
+
 	VERBOSE: 7:59:16 PM - Begin Operation: Start-AzureApplicationGateway 
 	VERBOSE: 8:05:52 PM - Completed Operation: Start-AzureApplicationGateway
 	Name       HTTP Status Code     Operation ID                             Error 
@@ -191,6 +199,8 @@
 > [AZURE.NOTE] 在此示例中，应用程序网关配置为在配置的 ILB 终结点 10.0.0.10 上接受流量。
 
 	PS C:\> Get-AzureApplicationGateway AppGwTest 
+
+<br/>
 
 	VERBOSE: 8:09:28 PM - Begin Operation: Get-AzureApplicationGateway 
 	VERBOSE: 8:09:30 PM - Completed Operation: Get-AzureApplicationGateway
