@@ -123,7 +123,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
         mvn clean package -DskipTests
 
 ## <a name="add-a-queue-to-your-iot-hub-and-route-messages-to-it"></a>向 IoT 中心添加一个队列并向其路由消息
-在本部分中，将创建一个服务总线队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
+在本部分中，将创建一个门户队列并将其连接到 IoT 中心，还会配置 IoT 中心，根据消息上的现有属性发送消息到队列。 若要深入了解如何处理来自服务总线队列的消息，请参阅 [队列入门][Service Bus queue]教程。
 
 1. 按 [队列入门][Service Bus queue]中所述，创建服务总线队列。 记下命名空间和队列名称。
 

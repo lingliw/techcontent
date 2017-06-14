@@ -51,7 +51,7 @@
 [AZURE.INCLUDE [iot-hub-get-started-create-consumer-group](../../includes/iot-hub-get-started-create-consumer-group.md)]
 
 ## <a name="create-configure-and-run-a-stream-analytics-job"></a>创建、配置和运行流分析作业
-
+门户
 ### <a name="create-a-stream-analytics-job"></a>创建流分析作业
 
 1. 在 Azure 门户中，单击“新建”>“物联网”>“流分析作业”。

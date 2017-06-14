@@ -26,7 +26,7 @@
 
 
 
-阅读本文以了解如何部署 Site Recovery，以便当 Hyper-V 主机未在 System Center Virtual Machine Manager (VMM) 云中托管时，将 Hyper-V 虚拟机复制到 Azure。
+阅读本文以了解如何部署 Si门户ecovery，以便当 Hyper-V 主机未在 System Center Virtual Machine Manager (VMM) 云中托管时，将 Hyper-V 虚拟机复制到 Azure。
 
 本文汇总了部署先决条件，并帮助你配置复制设置，以及为虚拟机启用保护。本文最后指导你测试故障转移，以确保一切都按预期进行。
 

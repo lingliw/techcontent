@@ -243,7 +243,7 @@ SDK 中附带的 **iothub\_client\_sample\_http** 应用程序演示了较低级
 
 
 		IOTHUB_CLIENT_CONFIG iotHubClientConfig;
-		iotHubClientConfig.iotHubName = "";
+		iotHubClientConfig.iotHubName = "";门户
 		iotHubClientConfig.deviceId = "";
 		iotHubClientConfig.deviceKey = "";
 		iotHubClientConfig.iotHubSuffix = "";

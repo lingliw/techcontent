@@ -139,7 +139,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
         Console.ReadLine();
 
 ## <a name="run-the-applications"></a>运行应用程序
-现在，你已准备就绪，可以运行应用程序了。
+现在，你已准备就绪，可以运行应用程序了。门户
 
 1. 在 Visual Studio 中，右键单击你的解决方案并选择“**设置启动项目**”。 选择“**多个启动项目**”，然后针对 **ReadFileUploadNotification** 和 **SimulatedDevice** 应用选择“**启动**”操作。
 2. 按 **F5**。 这两个应用程序应该都会启动。 你将在其中一个控制台应用中看到上传已完成，同时还会看到另一个控制台应用收到的上传通知消息。 可使用 [Azure 门户]或 Visual Studio 服务器资源管理器检查 Azure 存储帐户中是否存在上传的文件。
@@ -164,7 +164,7 @@ Azure IoT 中心是一项完全托管的服务，可在数百万个设备和一�
 [2]: ./media/iot-hub-csharp-csharp-file-upload/file-upload-project-csharp1.png
 [3]: ./media/iot-hub-csharp-csharp-file-upload/enable-file-notifications.png
 
-<!-- Links -->
+<!-- Li门户-->
 
 
 [Azure 门户预览]: https://portal.azure.cn/

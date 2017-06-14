@@ -21,14 +21,14 @@
 #  将 VMM 云中的 Hyper-V 虚拟机复制到 Azure
 
 > [AZURE.SELECTOR]
-- [Azure 经典管理门户](/documentation/articles/site-recovery-vmm-to-azure/)
+- [Azure 经典管理门户](/documentation/articles/site-recovery-vmm-to-azure/)门户
 - [PowerShell — 经典](/documentation/articles/site-recovery-deploy-with-powershell/)
-
+门户
 欢迎使用 Azure Site Recovery 服务！
 
 Site Recovery 是能够帮助实现业务连续性和灾难恢复 (BCDR) 策略的 Azure 服务。Site Recovery 可以协调从本地物理服务器和虚拟机到云 (Azure) 或辅助数据中心的复制。当主要位置发生故障时，你可以故障转移到辅助位置，使应用和工作负荷保持可用。当主要位置恢复正常时，你可以故障回复到主要位置。在[什么是 Azure Site Recovery？](/documentation/articles/site-recovery-overview/)中了解详细信息
 
-本文介绍如何在 Azure 门户中使用 Azure Site Recovery 将 System Center VMM 云中管理的本地 Hyper-V 虚拟机复制到 Azure。
+本文介绍如何在 Azure 门户 Azure Site Recovery 将 System Center VMM 云中管理的本地 Hyper-V 虚拟机复制到 Azure。
 
 阅读本文后，如有技术问题，请在 [Azure 恢复服务论坛](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)上提出。
 
@@ -87,7 +87,7 @@ Site Recovery 是一项 Azure 服务，可通过协调从本地物理服务器�
 ## 网络映射先决条件
 当在 Azure 中保护虚拟机时，网络映射会在源 VMM 服务器上的 VM 网络与目标 Azure 网络之间进行映射以实现以下功能：
 
-- 在同一网络上进行故障转移的所有计算机都可以彼此连接到对方，不管它们位于哪个恢复计划中。
+- 在同一网络上进行故障转移的所有计算机都可以彼此连接到对方，不管它们位于哪个恢复计划中。门户
 - 如果在目标 Azure 网络上设置了网络网关，则虚拟机可以连接到其他本地虚拟机。
 - 如果没有配置网络映射，则只有在同一恢复计划中进行故障转移的虚拟机能够在故障转移到 Azure 后彼此连接到对方。
 
@@ -100,7 +100,7 @@ Site Recovery 是一项 Azure 服务，可通过协调从本地物理服务器�
 
 1. [了解](/documentation/articles/site-recovery-network-mapping/)网络映射要求。
 2. 在 VMM 中准备 VM 网络：
-
+门户
 	- [设置逻辑网络](https://technet.microsoft.com/zh-cn/library/jj721568.aspx)。
 	- [设置 VM 网络](https://technet.microsoft.com/zh-cn/library/jj721575.aspx)。
 
@@ -215,13 +215,13 @@ Site Recovery 是一项 Azure 服务，可通过协调从本地物理服务器�
  - **/proxyPassword**：可选参数，用于指定代理密码。  
 
 
-## 步骤 4：创建 Azure 存储帐户
+## 步骤 4：创建 Azure 存储帐户门户
 
 1. 如果你没有 Azure 存储帐户，请单击“添加 Azure 存储帐户”创建一个。
 2. 创建帐户并启用异地复制。该帐户必须位于 Azure Site Recovery 服务所在的同一区域，并与同一订阅相关联。
 
 	![存储帐户](./media/site-recovery-vmm-to-azure/storage.png)
-
+门户
 ## 步骤 5：安装 Azure 恢复服务代理
 
 在 VMM 云中的每个 Hyper-V 主机服务器上安装 Azure 恢复服务代理。
@@ -299,8 +299,8 @@ Site Recovery 是一项 Azure 服务，可通过协调从本地物理服务器�
 1. 若要启用保护，请在虚拟机所在的云中的“虚拟机”选项卡上，单击“启用保护”>“添加虚拟机”。
 2. 从云中的虚拟机列表中，选择要保护的虚拟机。
 
-	![启用虚拟机保护](./media/site-recovery-vmm-to-azure/select-vm.png)
-
+	![启用虚拟机保护](./media/site-recovery-vmm-to-azure/select-vm.png)门户
+门户
 	在“作业”选项卡中跟踪“启用保护”操作的进度，包括初始复制。在“完成保护”作业运行之后，虚拟机就可以进行故障转移了。在启用保护并复制虚拟机后，你将能够在 Azure 中查看它们。
 
 
@@ -366,7 +366,7 @@ Site Recovery 是一项 Azure 服务，可通过协调从本地物理服务器�
 你还需要设置已复制虚拟机的基础结构，使之能够正常工作。使用，可以使用 Azure Site Recovery 将包含域控制器和 DNS 的虚拟机复制到 Azure，并可以使用测试故障故障转移在测试网络中创建此类虚拟机。如需更多详细信息，请参阅 [Active Directory 的测试性故障转移注意事项](/documentation/articles/site-recovery-active-directory/#considerations-for-test-failover)部分。
 
 若要运行测试故障转移，请执行以下操作：
-
+门户
 1. 在“恢复计划”选项卡上，选择该计划并单击“测试故障转移”。
 2. 在“确认测试故障转移”页上，选择“无”或选择一个特定的 Azure 网络。请注意，如果你选择了“无”，则测试故障转移将检查虚拟机是否可以正确复制到 Azure，但不会检查你的复制网络配置。
 
