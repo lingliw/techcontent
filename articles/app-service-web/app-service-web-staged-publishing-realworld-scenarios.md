@@ -306,7 +306,7 @@
 ### Umbraco
 在本部分中，会学习 Umbraco CMS 如何使用自定义模块跨多个 DevOps 环境进行部署。本示例提供用于管理多个开发环境的不同方法。
 
-[Umbraco CMS](http://umbraco.com/) 是许多开发人员使用的常用 .NET CMS 解决方案。它提供 [Courier2](http://umbraco.com/products/more-add-ons/courier-2) 模块，可用于从开发环境部署到过渡环境，再部署到生产环境。可使用 Visual Studio 或 WebMatrix 为 Umbraco CMS Web 应用轻松创建本地开发环境。
+[Umbraco CMS](http://umbraco.com/) 是许多开发人员使用的常用 .NET CMS 解决方案。它提供 Courier2 模块，可用于从开发环境部署到过渡环境，再部署到生产环境。可使用 Visual Studio 或 WebMatrix 为 Umbraco CMS Web 应用轻松创建本地开发环境。
 
 - [使用 Visual Studio 创建 Umbraco Web 应用](https://our.umbraco.org/documentation/Installation/install-umbraco-with-nuget)
 - [使用 WebMatrix 创建 Umbraco Web 应用](http://umbraco.tv/videos/umbraco-v7/implementor/fundamentals/installation/creating-umbraco-site-from-webmatrix-web-gallery/)
